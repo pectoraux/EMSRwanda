@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\Tetevi\Desktop\flutter\bin\cache\artifacts\engine\android-arm64\flutter.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="42dd1cf60b6f9bb560d9c653e214a030511f2056">
+        <dex dex="C:\Users\Tetevi\Desktop\Laterite\FSND\Udacity_project\udacity-course\unit_converter\unit_converter\build\app\intermediates\pre-dexed\debug\flutter_169f40faf01928039f26224a0be75afbb116a009.jar" />
+    </item>
+
+</items>

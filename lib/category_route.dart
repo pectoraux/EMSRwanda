@@ -4,9 +4,13 @@
 
 import 'dart:async';
 import 'dart:convert';
-
+import 'package:unit_converter/closed_projects.dart';
+import 'package:unit_converter/started_projects.dart';
+import 'package:unit_converter/starting_projects.dart';
+import 'package:unit_converter/explore_users.dart';
+import 'package:unit_converter/explore_devices.dart';
 import 'package:flutter/material.dart';
-
+import 'package:unit_converter/main_page.dart';
 import 'package:unit_converter/api.dart';
 import 'package:unit_converter/backdrop.dart';
 import 'package:unit_converter/category.dart';
@@ -206,19 +210,55 @@ class _CategoryRouteState extends State<CategoryRoute> {
     if(c.name == "Profile"){
   return UnitConverter(category: c);
   }else if(c.name == "Project"){
-  return new Container();//UnitConverter(category: _currentCategory);
+  return MaterialApp
+  (
+  title: 'Projects',
+  debugShowCheckedModeBanner: false,
+  theme: ThemeData(primarySwatch: Colors.blue),
+  home: MainPage(),
+  );//UnitConverter(category: _currentCategory);
   }else if (c.name == "Pending Requests"){
   return new Container();
   }else if (c.name == "Started Projects"){
-  return new Container();
+  return MaterialApp
+  (
+  title: 'Started Project Details',
+  debugShowCheckedModeBanner: false,
+  theme: ThemeData(primarySwatch: Colors.blue),
+  home: StartedProjectPage(),
+  );
   }else if (c.name == "Starting Projects"){
-  return new Container();
+  return MaterialApp
+  (
+  title: 'Starting Project Details',
+  debugShowCheckedModeBanner: false,
+  theme: ThemeData(primarySwatch: Colors.blue),
+  home: StartingProjectPage(),
+  );
   }else if (c.name == "Explore Users"){
-  return new Container();
+  return MaterialApp
+  (
+  title: 'Explore Users',
+  debugShowCheckedModeBanner: false,
+  theme: ThemeData(primarySwatch: Colors.blue),
+  home: ExploreUsersPage(),
+  );
   }else if (c.name == "Explore Devices"){
-  return new Container();
+  return MaterialApp
+  (
+  title: 'Explore Devices',
+  debugShowCheckedModeBanner: false,
+  theme: ThemeData(primarySwatch: Colors.blue),
+  home: ExploreDevicesPage(),
+  );
   }else if (c.name == "Closed Projects"){
-  return new Container();
+  return MaterialApp
+  (
+  title: 'Closed Project Details',
+  debugShowCheckedModeBanner: false,
+  theme: ThemeData(primarySwatch: Colors.blue),
+  home: ClosedProjectPage(),
+  );
   }else {
     return new Container();
   }
@@ -230,7 +270,7 @@ class _CategoryRouteState extends State<CategoryRoute> {
   }
   return c;
   }
-  
+
   @override
   Widget build(BuildContext context) {
     if (_categories.isEmpty) {

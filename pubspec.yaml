@@ -4,7 +4,8 @@ description: Unit Converter App that takes in a value and unit and outputs a con
 dependencies:
   flutter:
     sdk: flutter
-
+  flutter_sparkline: "^0.0.4"
+  flutter_staggered_grid_view: "^0.1.4"
 
 dev_dependencies:
   flutter_test:

@@ -3,30 +3,16 @@
 // found in the LICENSE file.
 
 import 'dart:async';
-
+import 'package:unit_converter/category_route.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-
+import 'shop_items_page.dart';
 import 'package:unit_converter/api.dart';
 import 'package:unit_converter/category.dart';
 import 'package:unit_converter/unit.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 const _padding = EdgeInsets.all(5.0);
-
-/// [UnitConverter] where users can input amounts to convert in one [Unit]
-/// and retrieve the conversion in another [Unit] for a specific [Category].
-class UnitConverter extends StatefulWidget {
-  /// The current [Category] for unit conversion.
-  final Category category;
-
-  /// This [UnitConverter] takes in a [Category] with [Units]. It can't be null.
-  const UnitConverter({
-    @required this.category,
-  }) : assert(category != null);
-
-  @override
-  _UnitConverterState createState() => _UnitConverterState();
-}
 
 class _UnitConverterState extends State<UnitConverter> {
   Unit _fromValue;
@@ -59,6 +45,11 @@ class _UnitConverterState extends State<UnitConverter> {
   final _fab4 = GlobalKey(debugLabel: 'Add Tag');
   final _fab5 = GlobalKey(debugLabel: 'Add Device');
 
+  Map<String, bool> values = {
+    'foo': true,
+    'bar': false,
+  };
+bool isCheck = true;
   @override
   void initState() {
     super.initState();
@@ -123,7 +114,17 @@ class _UnitConverterState extends State<UnitConverter> {
     return outputNum;
   }
 
-  Future<void> _updateConversion() async {
+  Future
+
+  <
+
+  void
+
+  >
+
+  _updateConversion
+
+  () async {
   // Our API has a handy convert function, so we can use that for
   // the Currency [Category]
   if (widget.category.name == apiCategory['name']) {
@@ -196,7 +197,11 @@ class _UnitConverterState extends State<UnitConverter> {
   }
   }
 
-  Widget _createDropdown(String currentValue, ValueChanged<dynamic> onChanged) {
+  Widget _createDropdown(String currentValue, ValueChanged<dynamic>
+
+  onChanged)
+
+  {
   return Container(
   margin: EdgeInsets.only(top: 16.0),
   decoration: BoxDecoration(
@@ -229,7 +234,9 @@ class _UnitConverterState extends State<UnitConverter> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)
+
+  {
   if (widget.category.units == null ||
   (widget.category.name == apiCategory['name'] && _showErrorUI)) {
   return SingleChildScrollView(
@@ -261,14 +268,13 @@ class _UnitConverterState extends State<UnitConverter> {
   ),
   );
   }
-  final padding = new Padding(padding: _padding);
+  final padding = Padding(padding: _padding);
   final input = Padding(
   padding: _padding,
   child: Column(
   mainAxisSize: MainAxisSize.max,
   mainAxisAlignment: MainAxisAlignment.center,
   children: [
-
   // This is the widget that accepts text input. In this case, it
   // accepts numbers and calls the onChanged property on update.
   // You can read more about it here: https://flutter.io/text-input
@@ -280,8 +286,7 @@ class _UnitConverterState extends State<UnitConverter> {
   decoration: InputDecoration(
   labelStyle: Theme.of(context).textTheme.button,
   contentPadding: const EdgeInsets.all(20.0),
-  errorText:
-  _showValidationError ? 'Invalid Name entered' : null,
+  errorText: _showValidationError ? 'Invalid Name entered' : null,
   labelText: 'First Name',
   border: OutlineInputBorder(
   borderRadius: BorderRadius.circular(20.0),
@@ -583,7 +588,43 @@ class _UnitConverterState extends State<UnitConverter> {
   child: new Text('Save'),
   );
   final changePasswd = RaisedButton(
-  onPressed: () {},
+  onPressed: () {new Container(
+  width: 450.0,
+  );
+  showDialog(context: context, child:
+  new AlertDialog(
+  contentPadding: _padding,
+  title: new Text("Change your Old Password",),
+  content: new Column(
+  children: <Widget>[
+  new ListTile(
+  leading: const Icon(Icons.person),
+  title: new TextField(
+  decoration: new InputDecoration(
+  hintText: "Old Password",
+  ),
+  ),
+  ),
+  new ListTile(
+  leading: const Icon(Icons.person),
+  title: new TextField(
+  decoration: new InputDecoration(
+  hintText: "New Password",
+  ),
+  ),
+  ),
+  new ListTile(
+  leading: const Icon(Icons.person),
+  title: new TextField(
+  decoration: new InputDecoration(
+  hintText: "Confirm Password",
+  ),
+  ),
+  ),
+  ]),
+  ),
+  );
+  },
   child: new Text('Change Password'),
   );
 
@@ -610,46 +651,292 @@ class _UnitConverterState extends State<UnitConverter> {
   ),
   );
 
- final fab1 =  new FloatingActionButton(
+  final fab1 = new FloatingActionButton(
   key: _fab1,
   elevation: 20.0,
-  child: new Icon(Icons.person_add),
+  child: new Icon(Icons.person_add, color: Colors.black54),
   tooltip: "Add User",
-  backgroundColor: new Color(0xFFE57373),
-  onPressed: (){}
+  backgroundColor: Colors.blue,
+  onPressed:(){
+    new Container(
+    width: 450.0,
+    );
+    showDialog(context: context, child:
+      new AlertDialog(
+      contentPadding: _padding,
+      title: new Text("Create A New User",),
+      content: new Column(
+  children: <Widget>[
+  new ListTile(
+  leading: const Icon(Icons.person),
+  title: new TextField(
+  decoration: new InputDecoration(
+  hintText: "User Email",
+  ),
+  ),
+  ),
+  new ListTile(
+  leading: const Icon(Icons.person),
+  title: new TextField(
+  decoration: new InputDecoration(
+  hintText: "User Role",
+  ),
+  ),
+  ),
+  ]),
+  ),
   );
-  final fab2 =  new FloatingActionButton(
+  },
+  );
+
+  final fab2 = new FloatingActionButton(
   key: _fab2,
   tooltip: "Add Role",
   elevation: 20.0,
-  child: new Icon(Icons.library_add),
-  backgroundColor: new Color(0xFFE57373),
-  onPressed: (){}
-  );
-  final fab3 =  new FloatingActionButton(
+  child: new Icon(Icons.library_add, color: Colors.black54),
+  backgroundColor: Colors.blue,
+  onPressed:(){
+  showDialog(context: context, child:
+  new AlertDialog(
+  title: new Text("Create A New Role"),
+  content: new Column(
+  children: <Widget>[
+  new ListTile(
+  leading: const Icon(Icons.library_add),
+  title: new TextField(
+  decoration: new InputDecoration(
+  hintText: "Role Name",
+  ),
+  ),
+  ),
+  ListTile(
+  onTap:null,
+  title: new Row(
+  children: <Widget>[
+  new Expanded(child: new Text("Can Create User")),
+  new Checkbox(value: isCheck, onChanged: (bool value) {
+  setState(() {
+  isCheck = value;
+
+  });
+  })
+  ],
+  )
+  ),
+  ListTile(
+  onTap:null,
+  title: new Row(
+  children: <Widget>[
+  new Expanded(child: new Text("Can Delete User")),
+  new Checkbox(value: isCheck, onChanged: (bool value) {
+  setState(() {
+  isCheck = value;
+
+  });
+  })
+  ],
+  )
+  ),
+  ListTile(
+  onTap:null,
+  title: new Row(
+  children: <Widget>[
+  new Expanded(child: new Text("Can Create Project")),
+  new Checkbox(value: isCheck, onChanged: (bool value) {
+  setState(() {
+  isCheck = value;
+
+  });
+  })
+  ],
+  )
+  ),
+  ListTile(
+  onTap:null,
+  title: new Row(
+  children: <Widget>[
+  new Expanded(child: new Text("Can Delete Project")),
+  new Checkbox(value: isCheck, onChanged: (bool value) {
+  setState(() {
+  isCheck = value;
+
+  });
+  })
+  ],
+  )
+  ),
+  ListTile(
+  onTap:null,
+  title: new Row(
+  children: <Widget>[
+  new Expanded(child: new Text("Can Create Role")),
+  new Checkbox(value: isCheck, onChanged: (bool value) {
+  setState(() {
+  isCheck = value;
+
+  });
+  })
+  ],
+  )
+  ),
+  ListTile(
+  onTap:null,
+  title: new Row(
+  children: <Widget>[
+  new Expanded(child: new Text("Can Delete Role")),
+  new Checkbox(value: isCheck, onChanged: (bool value) {
+  setState(() {
+  isCheck = value;
+
+  });
+  })
+  ],
+  )
+  ),
+
+  ]),));});
+
+  final fab3 = new FloatingActionButton(
   key: _fab3,
   tooltip: "Add Project",
   elevation: 20.0,
-  child: new Icon(Icons.add_box),
-  backgroundColor: new Color(0xFFE57373),
-  onPressed: (){}
+  child: new Icon(Icons.add_box, color: Colors.black54),
+  backgroundColor: Colors.blue,
+  onPressed:(){
+  new Container(
+  width: 450.0,
   );
-  final fab4 =  new FloatingActionButton(
+  showDialog(context: context, child:
+  new AlertDialog(
+  contentPadding: _padding,
+  title: new Text("Create A New Project",),
+  content: new Column(
+  children: <Widget>[
+  new ListTile(
+  leading: const Icon(Icons.add_box),
+  title: new TextField(
+  decoration: new InputDecoration(
+  hintText: "Project Name",
+  ),
+  ),
+  ),
+  new ListTile(
+  leading: const Icon(Icons.add_box),
+  title: new TextField(
+  decoration: new InputDecoration(
+  hintText: "Locations",
+  ),
+  ),
+  ),
+
+  new ListTile(
+  leading: const Icon(Icons.add_box),
+  title: new TextField(
+  decoration: new InputDecoration(
+  hintText: "Descriptions",
+  ),
+  ),
+  ),
+
+  new ListTile(
+  leading: const Icon(Icons.add_box),
+  title: new TextField(
+  decoration: new InputDecoration(
+  hintText: "Tags",
+  ),
+  ),
+  ),
+
+  ]),
+  ),
+  );
+  },
+  );
+
+  final fab4 = new FloatingActionButton(
   key: _fab4,
   tooltip: "Add Tag",
   elevation: 20.0,
-  child: new Icon(Icons.title),
-  backgroundColor: new Color(0xFFE57373),
-  onPressed: (){}
+  child: new Icon(Icons.title, color: Colors.black54),
+  backgroundColor: Colors.blue,
+  onPressed:(){
+  new Container(
+  width: 450.0,
   );
-  final fab5 =  new FloatingActionButton(
+  showDialog(context: context, child:
+  new AlertDialog(
+  contentPadding: _padding,
+  title: new Text("Create A New Tag",),
+  content: new Column(
+  children: <Widget>[
+  new ListTile(
+  leading: const Icon(Icons.title),
+  title: new TextField(
+  decoration: new InputDecoration(
+  hintText: "Tag Name",
+  ),
+  ),
+  ),
+  new ListTile(
+  leading: const Icon(Icons.title),
+  title: new TextField(
+  decoration: new InputDecoration(
+  hintText: "Description",
+  ),
+  ),
+  ),
+  new ListTile(
+  leading: const Icon(Icons.title),
+  title: new TextField(
+  decoration: new InputDecoration(
+  hintText: "Type",
+  ),
+  ),
+  ),
+  ]),
+  ),
+  );
+  },
+  );
+  final fab5 = new FloatingActionButton(
   key: _fab5,
   tooltip: "Add Device",
   elevation: 20.0,
-  child: new Icon(Icons.devices),
-  backgroundColor: new Color(0xFFE57373),
-  onPressed: (){}
+  child: new Icon(Icons.devices, color: Colors.black54),
+  backgroundColor: Colors.blue,
+  onPressed:(){
+  new Container(
+  width: 450.0,
   );
+  showDialog(context: context, child:
+  new AlertDialog(
+  contentPadding: _padding,
+  title: new Text("Add A New Device",),
+  content: new Column(
+  children: <Widget>[
+  new ListTile(
+  leading: const Icon(Icons.devices),
+  title: new TextField(
+  decoration: new InputDecoration(
+  hintText: "Device Type",
+  ),
+  ),
+  ),
+  new ListTile(
+  leading: const Icon(Icons.devices),
+  title: new TextField(
+  decoration: new InputDecoration(
+  hintText: "Device Description",
+  ),
+  ),
+  ),
+  ]),
+  ),
+  );
+  },
+  );
+
+
 
 
   final converter = ListView(
@@ -697,4 +984,43 @@ class _UnitConverterState extends State<UnitConverter> {
   ),
   );
   }
+
+  Widget _buildTile(Widget child,
+
+  {
+  Function() onTap
+  }
+
+  )
+
+  {
+  return Material(
+  elevation: 14.0,
+  borderRadius: BorderRadius.circular(12.0),
+  shadowColor: Color(0x802196F3),
+  child: InkWell
+  (
+  // Do onTap() if it isn't null, otherwise do print()
+  onTap: onTap != null ? () => onTap() : () {
+  print('Not set yet');
+  },
+  child: child
+  )
+  );
+  }
+}
+
+/// [UnitConverter] where users can input amounts to convert in one [Unit]
+/// and retrieve the conversion in another [Unit] for a specific [Category].
+class UnitConverter extends StatefulWidget {
+  /// The current [Category] for unit conversion.
+  final Category category;
+
+  /// This [UnitConverter] takes in a [Category] with [Units]. It can't be null.
+  const UnitConverter({
+    @required this.category,
+  }) : assert(category != null);
+
+  @override
+  _UnitConverterState createState() => _UnitConverterState();
 }

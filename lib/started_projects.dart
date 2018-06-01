@@ -497,7 +497,7 @@ class StartedProjectPageState extends State<StartedProjectPage>
       child: InkWell
       (
         // Do onTap() if it isn't null, otherwise do print()
-          onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => ProjectPage())),
+          onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => ProjectDetailsPage())),
         child: child
       )
     );

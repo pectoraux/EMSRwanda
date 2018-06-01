@@ -3,7 +3,7 @@ import 'package:flutter_sparkline/flutter_sparkline.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:unit_converter/project_details.dart';
 
-import 'shop_items_page.dart';
+import 'device_rating_page.dart';
 
 class ExploreDevicesPage extends StatefulWidget
 {
@@ -497,7 +497,7 @@ class ExploreDevicesPageState extends State<ExploreDevicesPage>
       child: InkWell
       (
         // Do onTap() if it isn't null, otherwise do print()
-          onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => ProjectPage())),
+          onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => DeviceRatingPage())),
         child: child
       )
     );

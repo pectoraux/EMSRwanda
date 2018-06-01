@@ -10,13 +10,14 @@ import 'package:unit_converter/starting_projects.dart';
 import 'package:unit_converter/explore_users.dart';
 import 'package:unit_converter/explore_devices.dart';
 import 'package:flutter/material.dart';
-import 'package:unit_converter/main_page.dart';
+import 'package:unit_converter/search_projects.dart';
 import 'package:unit_converter/api.dart';
 import 'package:unit_converter/backdrop.dart';
 import 'package:unit_converter/category.dart';
 import 'package:unit_converter/category_tile.dart';
 import 'package:unit_converter/unit.dart';
 import 'package:unit_converter/unit_converter.dart';
+import 'package:unit_converter/explore_requests.dart';
 
 /// Loads in unit conversion data, and displays the data.
 ///
@@ -215,10 +216,16 @@ class _CategoryRouteState extends State<CategoryRoute> {
   title: 'Projects',
   debugShowCheckedModeBanner: false,
   theme: ThemeData(primarySwatch: Colors.blue),
-  home: MainPage(),
+  home: SearchProjectsPage(),
   );//UnitConverter(category: _currentCategory);
   }else if (c.name == "Pending Requests"){
-  return new Container();
+  return MaterialApp
+  (
+  title: 'Pending Requests',
+  debugShowCheckedModeBanner: false,
+  theme: ThemeData(primarySwatch: Colors.blue),
+  home: ExploreRequestsPage(),
+  );
   }else if (c.name == "Started Projects"){
   return MaterialApp
   (

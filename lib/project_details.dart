@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sparkline/flutter_sparkline.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-import 'shop_items_page.dart';
+import 'explore_users.dart';
+import 'explore_devices.dart';
 
-class ProjectPage extends StatefulWidget
+class ProjectDetailsPage extends StatefulWidget
 {
   @override
-  ProjectPageState createState() => ProjectPageState();
+  ProjectDetailsPageState createState() => ProjectDetailsPageState();
 }
 
-class ProjectPageState extends State<ProjectPage>
+class ProjectDetailsPageState extends State<ProjectDetailsPage>
 {
   static const _padding = EdgeInsets.all(5.0);
   int people_surveyed = 100;
@@ -127,10 +128,11 @@ class ProjectPageState extends State<ProjectPage>
                   ),
                   Padding(padding: EdgeInsets.only(bottom: 16.0)),
                   Text('General', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 24.0)),
-                  Text('Images, Videos', style: TextStyle(color: Colors.black45)),
+                  Text('Staff & Stats', style: TextStyle(color: Colors.black45)),
                 ]
               ),
             ),
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => ExploreUsersPage())),
           ),
           _buildTile(
             Padding
@@ -258,7 +260,7 @@ class ProjectPageState extends State<ProjectPage>
                 ]
               ),
             ),
-            onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => ShopItemsPage())),
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => ExploreDevicesPage())),
           )
         ],
         staggeredTiles: [

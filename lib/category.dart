@@ -7,7 +7,7 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
-import 'package:unit_converter/unit.dart';
+import 'unit.dart';
 
 /// A [Category] keeps track of a list of [Unit]s.
 class Category {

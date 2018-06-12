@@ -3,13 +3,13 @@
 // found in the LICENSE file.
 
 import 'dart:async';
-import 'package:unit_converter/category_route.dart';
+import 'category_route.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'shop_items_page.dart';
-import 'package:unit_converter/api.dart';
-import 'package:unit_converter/category.dart';
-import 'package:unit_converter/unit.dart';
+import 'api.dart';
+import 'category.dart';
+import 'unit.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 const _padding = EdgeInsets.all(5.0);

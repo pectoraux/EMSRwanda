@@ -7,7 +7,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
-import 'package:unit_converter/category.dart';
+import 'category.dart';
 
 const double _kFlingVelocity = 2.0;
 

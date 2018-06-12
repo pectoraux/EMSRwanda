@@ -10,7 +10,7 @@ import 'dart:io';
 ///
 /// If we had more, we could keep a list of [Categories] here.
 const apiCategory = {
-  'name': 'Currency',
+  'name': 'User Availability',
   'route': 'currency',
 };
 

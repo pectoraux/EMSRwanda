@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 // You can use a relative import, i.e. `import 'category_route.dart;'` or
 // a package import, as shown below.
 // More details at http://dart-lang.github.io/linter/lints/avoid_relative_lib_imports.html
-import 'package:unit_converter/category_route.dart';
+import 'category_route.dart';
 
 /// The function that is called when main.dart is run.
 void main() {
@@ -28,9 +28,9 @@ class UnitConverterApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Raleway',
         textTheme: Theme.of(context).textTheme.apply(
-              bodyColor: Colors.black,
-              displayColor: Colors.grey[600],
-            ),
+          bodyColor: Colors.black,
+          displayColor: Colors.grey[600],
+        ),
         // This colors the [InputOutlineBorder] when it is selected
         primaryColor: Colors.grey[500],
         textSelectionHandleColor: Colors.green[500],

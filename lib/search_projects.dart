@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sparkline/flutter_sparkline.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:unit_converter/project_details.dart';
+import 'project_details.dart';
 
 
 class SearchProjectsPage extends StatefulWidget

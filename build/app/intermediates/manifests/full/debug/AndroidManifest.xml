@@ -24,7 +24,7 @@
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:icon="@mipmap/ic_launcher"
-        android:label="unit_converter" >
+        android:label="EMSRwanda" >
         <activity
             android:name="com.google.unitconverter.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection"

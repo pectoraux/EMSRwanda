@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sparkline/flutter_sparkline.dart';
+import 'supplemental/cut_corners_border.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'project_details.dart';
+import 'constants.dart';
 
 import 'user_rating_page.dart';
 
@@ -18,10 +18,23 @@ class ExploreUsersPageState extends State<ExploreUsersPage>
   @override
   Widget build(BuildContext context)
   {
+    final _bkey = GlobalKey(debugLabel: 'Back Key');
+    final _userNameController = TextEditingController();
+    final _userName = GlobalKey(debugLabel: 'User Name');
+    final _userRoleController = TextEditingController();
+    final _userRole = GlobalKey(debugLabel: 'User Role');
+    final _userStatusController = TextEditingController();
+    final _userStatus = GlobalKey(debugLabel: 'User Status');
+    final _userLocationsController = TextEditingController();
+    final _tagsController = TextEditingController();
+    final _userLocations = GlobalKey(debugLabel: 'Users Locations');
+    final _tags = GlobalKey(debugLabel: 'Project or User Related Tags');
+
     return Scaffold
     (
       appBar: AppBar
       (
+        leading: new BackButton(key: _bkey, color: Colors.black,),
         elevation: 2.0,
         backgroundColor: Colors.white,
         title: Text('Search Results', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 30.0)),
@@ -46,54 +59,114 @@ class ExploreUsersPageState extends State<ExploreUsersPage>
         new Container(
           width: 450.0,
         );
-        showDialog(context: context, child:
-        new AlertDialog(
-          contentPadding: _padding,
-          title: new Text("Search For An Enumerator"),
-          content: new Column(
-              children: <Widget>[
-                new ListTile(
-                  leading: const Icon(Icons.book),
-                  title: new TextField(
-                    decoration: new InputDecoration(
-                      hintText: "Name",
+
+        showDialog<Null>(
+          context: context,
+          barrierDismissible: false, // user must tap button!
+          builder: (BuildContext context) {
+            return new AlertDialog(
+              title: new Text('SEARCH  USERS', style: TodoColors.textStyle,),
+              content: new SingleChildScrollView(
+                child: new ListBody(
+                  children: <Widget>[
+                    SizedBox(height: 12.0),
+                    TextField(
+                      key: _userName,
+                      controller: _userNameController,
+                      decoration: InputDecoration(
+                        labelText: 'User Name',
+                        labelStyle: TodoColors.textStyle2,
+                        border: CutCornersBorder(),
+                      ),
                     ),
-                  ),
-                ),
-                new ListTile(
-                  leading: const Icon(Icons.location_city),
-                  title: new TextField(
-                    decoration: new InputDecoration(
-                      hintText: "Location",
+                    SizedBox(height: 12.0),
+                    TextField(
+                      key: _userRole,
+                      controller: _userRoleController,
+                      decoration: InputDecoration(
+                        labelText: 'User Role',
+                        labelStyle: TodoColors.textStyle2,
+                        border: CutCornersBorder(),
+                      ),
                     ),
-                  ),
-                ),
-                new ListTile(
-                  leading: const Icon(Icons.date_range),
-                  title: new TextField(
-                    decoration: new InputDecoration(
-                      hintText: "Age",
+                    SizedBox(height: 12.0),
+                    TextField(
+                      key: _userStatus,
+                      controller: _userStatusController,
+                      decoration: InputDecoration(
+                        labelText: 'User Status',
+                        labelStyle: TodoColors.textStyle2,
+                        border: CutCornersBorder(),
+                      ),
                     ),
-                  ),
-                ),
-                new ListTile(
-                  leading: const Icon(Icons.description),
-                  title: new TextField(
-                    decoration: new InputDecoration(
-                      hintText: "Tags",
+                    SizedBox(height: 12.0),
+                    TextField(
+                      key: _userLocations,
+                      controller: _userLocationsController,
+                      decoration: InputDecoration(
+                        labelText: 'User Location',
+                        labelStyle: TodoColors.textStyle2,
+                        border: CutCornersBorder(),
+                      ),
                     ),
-                  ),
-                ),
-                new ListTile(
-                  leading: const Icon(Icons.description),
-                  title: new TextField(
-                    decoration: new InputDecoration(
-                      hintText: "Gender",
+                    RaisedButton(
+                      child: Text('ADD LOCATION'),
+                      elevation: 8.0,
+                      shape: BeveledRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                      ),
+                      onPressed: () {
+                      },
                     ),
-                  ),
+                    SizedBox(height: 12.0),
+                    TextField(
+                      key: _tags,
+                      controller: _tagsController,
+                      decoration: InputDecoration(
+                        labelText: 'Project or User Related Tags',
+                        labelStyle: TodoColors.textStyle2,
+                        border: CutCornersBorder(),
+                      ),
+                    ),
+                    RaisedButton(
+                      child: Text('ADD TAG'),
+                      elevation: 8.0,
+                      shape: BeveledRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                      ),
+                      onPressed: () {
+                      },
+                    ),
+                    SizedBox(height: 12.0,),
+                  ],
                 ),
-              ]),
+
               ),
+
+              actions: <Widget>[
+                FlatButton(
+                  child: Text('CANCEL'),
+                  shape: BeveledRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+
+                RaisedButton(
+                  child: Text('SEARCH'),
+                  elevation: 8.0,
+                  shape: BeveledRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                  ),
+                  onPressed: () {
+                  },
+                ),
+
+              ],
+            );
+          },
         );
       },
     ),

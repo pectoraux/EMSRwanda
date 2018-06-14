@@ -1,4 +1,4 @@
-import 'package:ems_rwanda/category.dart';
+
 import 'package:flutter/material.dart';
 import 'main_menu.dart';
 import 'models.dart';
@@ -7,10 +7,9 @@ import 'edit_project.dart';
 import 'profile_header.dart';
 import 'quick_actions.dart';
 import 'constants.dart';
-import 'edit_profile.dart';
-import 'edit_devices.dart';
-import 'edit_roles.dart';
-
+import 'edit_device.dart';
+import 'edit_role.dart';
+import 'edit_user.dart';
 
 class ProfileApp extends StatefulWidget {
 
@@ -37,7 +36,7 @@ class ProfileAppState extends State<ProfileApp> {
           icon: new Icon(Icons.library_add, color: getColor(1),),
           title: new Text("Roles")),
       new BottomNavigationBarItem(
-          icon: new Icon(Icons.add_box, color: getColor(2),),
+          icon: new Icon(Icons.work, color: getColor(2),),
           title: new Text("Projects")
       ),
       new BottomNavigationBarItem(
@@ -50,13 +49,14 @@ class ProfileAppState extends State<ProfileApp> {
       ),
       new BottomNavigationBarItem(
           icon: new Icon(Icons.person, color: getColor(5),),
-          title: new Text("Edit\nProfile")
+          title: new Text("Users")
       ),
     ];
 
     final profile = getProfile();
 
     return new Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: new PageView(
           children: [
             new ListView(
@@ -67,12 +67,11 @@ class ProfileAppState extends State<ProfileApp> {
                 new MainMenu(),
               ],
             ),
-            new EditRolePage(),
+            new EditRolesPage(),
             new EditProjectPage(),
             new EditTagPage(),
             new EditDevicePage(),
-            new EditProfilePage()
-
+            new EditUserPage(),
           ],
           controller: _pageController,
           onPageChanged: onPageChanged

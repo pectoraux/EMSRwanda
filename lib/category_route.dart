@@ -217,7 +217,7 @@ class _CategoryRouteState extends State<CategoryRoute> {
   Widget condition(Category c){
 //    c = _currentCategory;
   if(c.name == "Profile"){
-//  return UnitConverter(category: c);
+//  return EditProfilePage();
   return MaterialApp
   (
   title: 'Projects',

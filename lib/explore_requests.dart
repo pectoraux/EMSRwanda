@@ -17,10 +17,12 @@ class ExploreRequestsPageState extends State<ExploreRequestsPage>
   @override
   Widget build(BuildContext context)
   {
+    final _bkey = GlobalKey(debugLabel: 'Back Key');
     return Scaffold
     (
       appBar: AppBar
       (
+        leading: new BackButton(key: _bkey, color: Colors.black,),
         elevation: 2.0,
         backgroundColor: Colors.white,
         title: Text('Search Results', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 30.0)),

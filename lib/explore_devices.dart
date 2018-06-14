@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sparkline/flutter_sparkline.dart';
+import 'supplemental/cut_corners_border.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'project_details.dart';
+import 'constants.dart';
 
 import 'device_rating_page.dart';
 
@@ -18,13 +18,21 @@ class ExploreDevicesPageState extends State<ExploreDevicesPage>
   @override
   Widget build(BuildContext context)
   {
+    final _bkey = GlobalKey(debugLabel: 'Back Key');
+    final _deviceNameController = TextEditingController();
+    final _deviceName = GlobalKey(debugLabel: 'Device Name');
+    final _deviceTypeController = TextEditingController();
+    final _deviceType = GlobalKey(debugLabel: 'Device Type');
+    final _deviceConditionController = TextEditingController();
+    final _deviceCondition = GlobalKey(debugLabel: 'Device Condition');
     return Scaffold
     (
       appBar: AppBar
       (
+        leading: new BackButton(key: _bkey, color: Colors.black,),
         elevation: 2.0,
         backgroundColor: Colors.white,
-        title: Text('Search Results', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 30.0)),
+        title: Text('Search Results', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 25.0)),
         actions: <Widget>
         [
           Container
@@ -36,8 +44,6 @@ class ExploreDevicesPageState extends State<ExploreDevicesPage>
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>
               [
-//                Text('TAP HERE', style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w700, fontSize: 14.0)),
-//                Icon(Icons.search, color: Colors.black54)
        new FloatingActionButton(
       elevation: 200.0,
       child: new Icon(Icons.search),
@@ -46,46 +52,76 @@ class ExploreDevicesPageState extends State<ExploreDevicesPage>
         new Container(
           width: 450.0,
         );
-        showDialog(context: context, child:
-        new AlertDialog(
-          contentPadding: _padding,
-          title: new Text("Search For A Device"),
-          content: new Column(
-              children: <Widget>[
-                new ListTile(
-                  leading: const Icon(Icons.book),
-                  title: new TextField(
-                    decoration: new InputDecoration(
-                      hintText: "Type",
+
+        showDialog<Null>(
+          context: context,
+          barrierDismissible: false, // user must tap button!
+          builder: (BuildContext context) {
+            return new AlertDialog(
+              title: new Text('SEARCH  DEVICES', style: TodoColors.textStyle,),
+              content: new SingleChildScrollView(
+                child: new ListBody(
+                  children: <Widget>[
+                    SizedBox(height: 12.0),
+                    TextField(
+                      key: _deviceName,
+                      controller: _deviceNameController,
+                      decoration: InputDecoration(
+                        labelText: 'Device Name',
+                        labelStyle: TodoColors.textStyle2,
+                        border: CutCornersBorder(),
+                      ),
                     ),
-                  ),
-                ),
-                new ListTile(
-                  leading: const Icon(Icons.location_city),
-                  title: new TextField(
-                    decoration: new InputDecoration(
-                      hintText: "Status",
+                    SizedBox(height: 12.0),
+                    TextField(
+                      key: _deviceType,
+                      controller: _deviceTypeController,
+                      decoration: InputDecoration(
+                        labelText: 'Device Type',
+                        labelStyle: TodoColors.textStyle2,
+                        border: CutCornersBorder(),
+                      ),
                     ),
-                  ),
-                ),
-                new ListTile(
-                  leading: const Icon(Icons.date_range),
-                  title: new TextField(
-                    decoration: new InputDecoration(
-                      hintText: "Desciption",
+                    SizedBox(height: 12.0),
+                    TextField(
+                      key: _deviceCondition,
+                      controller: _deviceConditionController,
+                      decoration: InputDecoration(
+                        labelText: 'Device Condition',
+                        labelStyle: TodoColors.textStyle2,
+                        border: CutCornersBorder(),
+                      ),
                     ),
-                  ),
+                    SizedBox(height: 12.0,),
+                  ],
                 ),
-                new ListTile(
-                  leading: const Icon(Icons.description),
-                  title: new TextField(
-                    decoration: new InputDecoration(
-                      hintText: "Tags",
-                    ),
-                  ),
-                ),
-              ]),
+
               ),
+
+              actions: <Widget>[
+                FlatButton(
+                  child: Text('CANCEL'),
+                  shape: BeveledRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+
+                RaisedButton(
+                  child: Text('SEARCH'),
+                  elevation: 8.0,
+                  shape: BeveledRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                  ),
+                  onPressed: () {
+                  },
+                ),
+
+              ],
+            );
+          },
         );
       },
     ),

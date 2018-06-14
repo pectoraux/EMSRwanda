@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sparkline/flutter_sparkline.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-
+import 'constants.dart';
 import 'explore_users.dart';
 import 'explore_devices.dart';
 
@@ -31,32 +31,42 @@ class ProjectDetailsPageState extends State<ProjectDetailsPage>
   @override
   Widget build(BuildContext context)
   {
+    final _bkey = GlobalKey(debugLabel: 'Back Key');
     return Scaffold
     (
       appBar: AppBar
       (
+        leading: new BackButton(key: _bkey, color: Colors.black,),
+        title: new Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Icon(Icons.person, color: Colors.black54, size: 20.0,),
+            SizedBox(width: 2.0,),
+            new Expanded(child:
+            new Text('Anirudh\nRajashekar', style: TodoColors.textStyle),
+              flex: 1,
+            )
+          ],
+        ),
         elevation: 2.0,
         backgroundColor: Colors.white,
-//        title: Text('Dashboard', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 30.0)),
         actions: <Widget>
         [
           Container
           (
-            margin: EdgeInsets.only(right: 80.0),
+//            margin: EdgeInsets.only(right: 80.0),
             child: Row
             (
+              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               textDirection: TextDirection.ltr,
               children: <Widget>
               [
-                Icon(Icons.person, color: Colors.black54),
-                Padding(padding: EdgeInsets.only(left: 8.0)),
-                Text('Anirudh\nRajashekar', style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w700, fontSize: 14.0)),
-                Padding(padding: EdgeInsets.only(left: 8.0)),
                 RaisedButton(
                 padding: EdgeInsets.all(18.0),
                 onPressed: () {},
-                 child: new Text('Send Work Request'),
+                 child: new Text('Send   Work   Request', style: TodoColors.textStyle4,),
                )
               ],
             ),

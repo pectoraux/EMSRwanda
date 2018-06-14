@@ -31,7 +31,7 @@ class UserRatingPageState extends State<UserRatingPage>
                   alignment: Alignment.center,
                   children: <Widget>
                   [
-                    Image.asset('res/shoes1.png'),
+                    Image.asset("assets/images/emma-watson.jpg"),
                     Container(color: Colors.black26)
                   ],
                 ),

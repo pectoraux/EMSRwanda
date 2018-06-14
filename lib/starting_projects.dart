@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sparkline/flutter_sparkline.dart';
+import 'supplemental/cut_corners_border.dart';
+import 'constants.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'project_details.dart';
 
@@ -18,10 +19,19 @@ class StartingProjectPageState extends State<StartingProjectPage>
   @override
   Widget build(BuildContext context)
   {
+    final _bkey = GlobalKey(debugLabel: 'Back Key');
+    final _projectTitleController = TextEditingController();
+    final _projectTitle = GlobalKey(debugLabel: 'Project Title');
+    final _projectLocationsController = TextEditingController();
+    final _projectTagsController = TextEditingController();
+    final _projectLocations = GlobalKey(debugLabel: 'Project Locations');
+    final _projectTags = GlobalKey(debugLabel: 'Project Tags');
+
     return Scaffold
     (
       appBar: AppBar
       (
+        leading: new BackButton(key: _bkey, color: Colors.black,),
         elevation: 2.0,
         backgroundColor: Colors.white,
         title: Text('Search Results', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 30.0)),
@@ -46,46 +56,93 @@ class StartingProjectPageState extends State<StartingProjectPage>
         new Container(
           width: 450.0,
         );
-        showDialog(context: context, child:
-        new AlertDialog(
-          contentPadding: _padding,
-          title: new Text("Search For A Project",),
-          content: new Column(
-              children: <Widget>[
-                new ListTile(
-                  leading: const Icon(Icons.book),
-                  title: new TextField(
-                    decoration: new InputDecoration(
-                      hintText: "Project Name",
+        showDialog<Null>(
+          context: context,
+          barrierDismissible: false, // user must tap button!
+          builder: (BuildContext context) {
+            return new AlertDialog(
+              title: new Text('SEARCH  PROJECTS', style: TodoColors.textStyle,),
+              content: new SingleChildScrollView(
+                child: new ListBody(
+                  children: <Widget>[
+                    SizedBox(height: 12.0),
+                    TextField(
+                      key: _projectTitle,
+                      controller: _projectTitleController,
+                      decoration: InputDecoration(
+                        labelText: 'Project Title',
+                        labelStyle: TodoColors.textStyle2,
+                        border: CutCornersBorder(),
+                      ),
                     ),
-                  ),
-                ),
-                new ListTile(
-                  leading: const Icon(Icons.location_city),
-                  title: new TextField(
-                    decoration: new InputDecoration(
-                      hintText: "Project Location",
+                    SizedBox(height: 12.0),
+                    TextField(
+                      key: _projectLocations,
+                      controller: _projectLocationsController,
+                      decoration: InputDecoration(
+                        labelText: 'Project Location',
+                        labelStyle: TodoColors.textStyle2,
+                        border: CutCornersBorder(),
+                      ),
                     ),
-                  ),
-                ),
-                new ListTile(
-                  leading: const Icon(Icons.date_range),
-                  title: new TextField(
-                    decoration: new InputDecoration(
-                      hintText: "From",
+                    RaisedButton(
+                      child: Text('ADD LOCATION'),
+                      elevation: 8.0,
+                      shape: BeveledRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                      ),
+                      onPressed: () {
+                      },
                     ),
-                  ),
-                ),
-                new ListTile(
-                  leading: const Icon(Icons.description),
-                  title: new TextField(
-                    decoration: new InputDecoration(
-                      hintText: "Tags",
+                    SizedBox(height: 12.0),
+                    TextField(
+                      key: _projectTags,
+                      controller: _projectTagsController,
+                      decoration: InputDecoration(
+                        labelText: 'Project Tag',
+                        labelStyle: TodoColors.textStyle2,
+                        border: CutCornersBorder(),
+                      ),
                     ),
-                  ),
+                    RaisedButton(
+                      child: Text('ADD TAG'),
+                      elevation: 8.0,
+                      shape: BeveledRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                      ),
+                      onPressed: () {
+                      },
+                    ),
+                    SizedBox(height: 12.0),
+                  ],
                 ),
-              ]),
-        ),
+
+              ),
+
+              actions: <Widget>[
+                FlatButton(
+                  child: Text('CANCEL'),
+                  shape: BeveledRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+
+                RaisedButton(
+                  child: Text('SEARCH'),
+                  elevation: 8.0,
+                  shape: BeveledRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                  ),
+                  onPressed: () {
+                  },
+                ),
+
+              ],
+            );
+          },
         );
       },
     ),

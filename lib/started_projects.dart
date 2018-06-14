@@ -3,7 +3,6 @@ import 'package:flutter_sparkline/flutter_sparkline.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'project_details.dart';
 
-import 'shop_items_page.dart';
 
 class StartedProjectPage extends StatefulWidget
 {
@@ -18,10 +17,13 @@ class StartedProjectPageState extends State<StartedProjectPage>
   @override
   Widget build(BuildContext context)
   {
+    final _bkey = GlobalKey(debugLabel: 'Back Key');
+
     return Scaffold
     (
       appBar: AppBar
       (
+        leading: new BackButton(key: _bkey, color: Colors.black,),
         elevation: 2.0,
         backgroundColor: Colors.white,
         title: Text('Search Results', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 30.0)),

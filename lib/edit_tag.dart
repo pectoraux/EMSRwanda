@@ -1,13 +1,10 @@
 
-import 'dart:async';
-
+import 'profile_icons.dart';
 import 'package:flutter/material.dart';
 
 import 'supplemental/cut_corners_border.dart';
 import 'constants.dart';
-
-
-
+import 'quick_tag_actions.dart';
 
 class EditTagPage extends StatefulWidget {
   @override
@@ -15,65 +12,77 @@ class EditTagPage extends StatefulWidget {
 }
 
 class EditTagPageState extends State<EditTagPage> {
-  final _usernameController = TextEditingController();
-  final _passwordController = TextEditingController();
-  final _inputKey = GlobalKey(debugLabel: 'inputText');
-  final _firstName = GlobalKey(debugLabel: 'First Name');
-  final _lastName = GlobalKey(debugLabel: 'Last Name');
-  final _email1 = GlobalKey(debugLabel: 'Email1');
-  final _email2 = GlobalKey(debugLabel: 'Email2');
-  final _sex = GlobalKey(debugLabel: 'Sex');
-  final _country = GlobalKey(debugLabel: 'Country');
-  final _phone1 = GlobalKey(debugLabel: 'Phone1');
-  final _phone2 = GlobalKey(debugLabel: 'Phone2');
-  final _passportNo = GlobalKey(debugLabel: 'Passport No');
-  final _bankAcctNo = GlobalKey(debugLabel: 'Banc Acct No');
-  final _bankName = GlobalKey(debugLabel: 'Bank Name');
-  final _insurance = GlobalKey(debugLabel: 'Insurance');
-  final _insuranceNo = GlobalKey(debugLabel: 'Insurance No');
-  final _insuranceCpy = GlobalKey(debugLabel: 'Insurance Copy');
-  final _tin = GlobalKey(debugLabel: 'TIN');
-  final _cvStatusElec = GlobalKey(debugLabel: 'CV Status Electronic');
-  final _fab1 = GlobalKey(debugLabel: 'Add User');
-  final _fab2 = GlobalKey(debugLabel: 'Add Role');
-  final _fab3 = GlobalKey(debugLabel: 'Add Project');
-  final _fab4 = GlobalKey(debugLabel: 'Add Tag');
-  final _fab5 = GlobalKey(debugLabel: 'Add Device');
+  final _tagNameController = TextEditingController();
+  final _tagTypeController = TextEditingController();
+  final _tagDescriptionController = TextEditingController();
+  final _tagName = GlobalKey(debugLabel: 'Tag Name');
+  final _tagType = GlobalKey(debugLabel: 'Tag Type');
+  final _tagDescription = GlobalKey(debugLabel: 'Tag Description');
   final _padding = EdgeInsets.all(5.0);
 
   @override
   Widget build(BuildContext context) {
 
-    final padding = Padding(padding: _padding);
-
 
     final converter =  ListView(
-      padding: EdgeInsets.symmetric(horizontal: 24.0),
+      padding: EdgeInsets.symmetric(horizontal: 10.0),
       children: <Widget>[
+        new QuickTagActions(),
+
+        SizedBox(height: 20.0),
+        Column(
+          children: <Widget>[
+            Image.asset('assets/diamond.png'),
+            SizedBox(height: 16.0),
+            Text(
+              'Create A New Tag',
+              style: TodoColors.textStyle,
+            ),
+          ],
+        ),
+
+        SizedBox(height: 12.0),
         PrimaryColorOverride(
           color: TodoColors.accent,
+
           child: TextField(
-            key: _firstName,
-            controller: _usernameController,
+            key: _tagName,
+            controller: _tagNameController,
             decoration: InputDecoration(
-              labelText: 'First Name',
+              labelText: 'Tag Name',
               border: CutCornersBorder(),
             ),
           ),
         ),
+
         const SizedBox(height: 12.0),
-        new PrimaryColorOverride(
+
+        PrimaryColorOverride(
           color: TodoColors.accent,
+
           child: TextField(
-            key: _lastName,
-            controller: _passwordController,
+            key: _tagType,
+            controller: _tagTypeController,
             decoration: InputDecoration(
-              labelText: 'Last Name',
+              labelText: 'Tag Type',
               border: CutCornersBorder(),
             ),
           ),
         ),
         const SizedBox(height: 12.0),
+
+        PrimaryColorOverride(
+          color: TodoColors.accent,
+
+          child: TextField(
+            key: _tagDescription,
+            controller: _tagDescriptionController,
+            decoration: InputDecoration(
+              labelText: 'Tag Description',
+              border: CutCornersBorder(),
+            ),
+          ),
+        ),
 
         ButtonBar(
           children: <Widget>[
@@ -83,41 +92,51 @@ class EditTagPageState extends State<EditTagPage> {
                 borderRadius: BorderRadius.all(Radius.circular(7.0)),
               ),
               onPressed: () {
-                _usernameController.clear();
-                _passwordController.clear();
+                _tagNameController.clear();
+                _tagTypeController.clear();
+                _tagDescriptionController.clear();
               },
             ),
             RaisedButton(
-              child: Text('SAVE'),
+              child: Text('CREATE'),
               elevation: 8.0,
               shape: BeveledRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(7.0)),
               ),
               onPressed: () {
+                if(_tagNameController.value.text.trim() != "" && _tagTypeController.value.text.trim() != "" &&
+                _tagDescriptionController.value.text.trim() != ""){
+                  showInSnackBar("Tag Created Successfully", TodoColors.accent);
+                }else{
+                  showInSnackBar("Please Specify A Value For All Fields", Colors.redAccent);
+                }
               },
             ),
           ],
         ),
-      ],
-    );
+    ]);
 
-    return Padding(
-      padding: _padding,
-      child: OrientationBuilder(
-        builder: (BuildContext context, Orientation orientation) {
-          if (orientation == Orientation.portrait) {
-            return converter;
-          } else {
-            return Center(
-              child: Container(
-                width: 450.0,
-                child: converter,
-              ),
-            );
-          }
-        },
-      ),
+    return OrientationBuilder(
+      builder: (BuildContext context, Orientation orientation) {
+        if (orientation == Orientation.portrait) {
+          return converter;
+        } else {
+          return Center(
+            child: Container(
+              width: 450.0,
+              child: converter,
+            ),
+          );
+        }
+      },
     );
+  }
+
+  void showInSnackBar(String value, Color c) {
+    Scaffold.of(context).showSnackBar(new SnackBar(
+      content: new Text(value),
+      backgroundColor: c,
+    ));
   }
 }
 

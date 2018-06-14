@@ -3,6 +3,7 @@
 // BSD-style license that can be found in the LICENSE file.
 
 import 'package:flutter/painting.dart';
+import 'profile_fonts.dart';
 
 const todoLineHeight = 63.0;
 const appBarHeight = 63.0;
@@ -14,6 +15,8 @@ const doneStyle = const TextStyle(
   decoration: TextDecoration.lineThrough,
 );
 
+
+
 class TodoColors {
   static const Color primaryDark = const Color(0xFF863352);
   static const Color primary = const Color(0xFFB43F54);
@@ -23,4 +26,29 @@ class TodoColors {
   static const Color accent = const Color(0xFF42B2CC);
   static const Color disabled = const Color(0xFFBABCBE);
   static const Color line = const Color(0xFF414044);
+
+  static final textStyle = new TextStyle(
+      color: accent,
+      fontWeight: FontWeight.w700,
+      fontSize: 18.0,
+      fontFamily: ProfileFontNames.TimeBurner);
+
+  static final textStyle2 = new TextStyle(
+      color: background,
+      fontWeight: FontWeight.w500,
+      fontSize: 16.0,
+      fontFamily: ProfileFontNames.TimeBurner);
+
+  static final textStyle3 = new TextStyle(
+      color: primary,
+      fontWeight: FontWeight.w900,
+      fontSize: 16.0,
+      fontFamily: ProfileFontNames.TimeBurner);
+
+  static final textStyle4 = new TextStyle(
+      color: accent,
+      fontWeight: FontWeight.w900,
+      fontSize: 13.0,
+      fontFamily: ProfileFontNames.TimeBurner);
 }
+

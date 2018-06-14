@@ -31,7 +31,7 @@ class DeviceRatingPageState extends State<DeviceRatingPage>
                   alignment: Alignment.center,
                   children: <Widget>
                   [
-                    Image.asset('res/shoes1.png'),
+                    Image.asset('assets/ipad.jpg'),
                     Container(color: Colors.black26)
                   ],
                 ),

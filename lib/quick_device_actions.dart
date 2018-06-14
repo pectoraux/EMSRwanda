@@ -47,10 +47,10 @@ class QuickDeviceActions extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             children: <Widget>[
               _buildAction(context,
-                  "View Devices", () {}, Colors.blue, blueGradient,
+                  "View\nDevices", () {}, Colors.blue, blueGradient,
                   new AssetImage("assets/images/microphone.png")),
               _buildAction(context,
-                  "Update Device", () {}, Colors.purple, purpleGraient,
+                  "Update\nDevice", () {}, Colors.purple, purpleGraient,
                   new AssetImage("assets/images/wallet.png")),
             ]
         ),
@@ -135,9 +135,9 @@ class QuickDeviceActions extends StatelessWidget {
     final _deviceConditionController = TextEditingController();
     final _deviceCondition = GlobalKey(debugLabel: 'Device Condition');
 
-    if(title == "View Devices"){
+    if(title == "View\nDevices"){
       Navigator.of(context).push(MaterialPageRoute(builder: (_) => ExploreDevicesPage()));
-    }else if(title == "Update Device") {
+    }else if(title == "Update\nDevice") {
       new Container(
         width: 450.0,
       );

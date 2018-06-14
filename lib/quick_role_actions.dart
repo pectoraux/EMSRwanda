@@ -47,10 +47,10 @@ class QuickRoleActions extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             children: <Widget>[
               _buildAction(context,
-                  "View Roles", () {}, Colors.blue, blueGradient,
+                  "View\nRoles", () {}, Colors.blue, blueGradient,
                   new AssetImage("assets/images/microphone.png")),
               _buildAction(context,
-                  "Update Role", () {}, Colors.purple, purpleGraient,
+                  "Update\nRole", () {}, Colors.purple, purpleGraient,
                   new AssetImage("assets/images/wallet.png")),
             ]
         ),
@@ -128,9 +128,9 @@ class QuickRoleActions extends StatelessWidget {
 
   void onTap(BuildContext context, String title){
     final _padding = EdgeInsets.all(5.0);
-    if(title == "View Roles"){
+    if(title == "View\nRoles"){
       Navigator.of(context).push(MaterialPageRoute(builder: (_) => ViewRolesPage()));
-    }else if(title == "Update Role") {
+    }else if(title == "Update\nRole") {
       showSearchDialog(context);
     }
   }

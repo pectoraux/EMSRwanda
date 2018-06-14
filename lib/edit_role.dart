@@ -23,6 +23,12 @@ class EditRolesPageState extends State<EditRolesPage> {
   bool _createRolePermission = false;
   bool _createTagPermission = false;
   bool _grantUserPermission = false;
+  List devices = [
+    "ipad",
+    "Microphone",
+    "Dictaphone",
+    "Phone",
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +66,7 @@ class EditRolesPageState extends State<EditRolesPage> {
           ),
         ),
 
-        const SizedBox(height: 12.0),
+
         new CheckboxListTile(
           title: Text('Can Create User',style: TodoColors.textStyle2,),
           value: _createUserPermission,

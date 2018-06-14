@@ -47,10 +47,10 @@ class QuickUserActions extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             children: <Widget>[
               _buildAction(context,
-                  "View Users", () {}, Colors.blue, blueGradient,
+                  "View\nUsers", () {}, Colors.blue, blueGradient,
                   new AssetImage("assets/images/microphone.png")),
               _buildAction(context,
-                  "Update User", () {}, Colors.purple, purpleGraient,
+                  "Update\nUser", () {}, Colors.purple, purpleGraient,
                   new AssetImage("assets/images/wallet.png")),
             ]
         ),
@@ -138,9 +138,9 @@ class QuickUserActions extends StatelessWidget {
     final _userLocations = GlobalKey(debugLabel: 'Users Locations');
     final _tags = GlobalKey(debugLabel: 'Project or User Related Tags');
 
-    if(title == "View Users"){
+    if(title == "View\nUsers"){
       Navigator.of(context).push(MaterialPageRoute(builder: (_) => ExploreUsersPage()));
-    }else if(title == "Update User") {
+    }else if(title == "Update\nUser") {
       new Container(
         width: 450.0,
       );

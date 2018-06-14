@@ -20,7 +20,7 @@ import 'unit_converter.dart';
 import 'explore_requests.dart';
 import 'animated_list.dart';
 import 'profile_app.dart';
-import 'edit_profile.dart';
+import 'constants.dart';
 
 /// Loads in unit conversion data, and displays the data.
 ///
@@ -329,7 +329,21 @@ class _CategoryRouteState extends State<CategoryRoute> {
   frontPanel: condition(_currentCategory),
   backPanel: listView,
   frontTitle: Text(""),
-  backTitle: Text('Welcome to Laterite'),
+  backTitle:  Row
+  (
+  crossAxisAlignment: CrossAxisAlignment.center,
+  mainAxisAlignment: MainAxisAlignment.center,
+  textDirection: TextDirection.ltr,
+  children: <Widget>
+  [
+  Text("Welcome To Laterite", style: TodoColors.textStyle5,),
+  Expanded(child:FlatButton(
+  onPressed: () {},
+  child: new Text('Log Out', style: TodoColors.textStyle3,),
+  ), flex: 1,),
+  ],
+  ),
+
   );
   }
 }

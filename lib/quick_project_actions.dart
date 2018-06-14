@@ -46,10 +46,10 @@ class QuickProjectActions extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             children: <Widget>[
               _buildAction(context,
-                  "View Projects", () {}, Colors.blue, blueGradient,
+                  "View\nProjects", () {}, Colors.blue, blueGradient,
                   new AssetImage("assets/images/microphone.png")),
               _buildAction(context,
-                  "Delete Project", () {}, Colors.purple, purpleGraient,
+                  "Delete\nProject", () {}, Colors.purple, purpleGraient,
                   new AssetImage("assets/images/wallet.png")),
             ]
         ),
@@ -133,9 +133,9 @@ class QuickProjectActions extends StatelessWidget {
     final _projectLocations = GlobalKey(debugLabel: 'Project Locations');
     final _projectTags = GlobalKey(debugLabel: 'Project Tags');
 
-    if(title == "View Projects"){
+    if(title == "View\nProjects"){
       Navigator.of(context).push(MaterialPageRoute(builder: (_) => ViewProjectsPage()));
-    }else if(title == "Delete Project") {
+    }else if(title == "Delete\nProject") {
       new Container(
         width: 450.0,
       );

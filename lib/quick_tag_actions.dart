@@ -47,10 +47,10 @@ class QuickTagActions extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             children: <Widget>[
               _buildAction(context,
-                  "View Tags", () {}, Colors.blue, blueGradient,
+                  "View\nTags", () {}, Colors.blue, blueGradient,
                   new AssetImage("assets/images/microphone.png")),
               _buildAction(context,
-                  "Update Tag", () {}, Colors.purple, purpleGraient,
+                  "Update\nTag", () {}, Colors.purple, purpleGraient,
                   new AssetImage("assets/images/wallet.png")),
             ]
         ),
@@ -132,9 +132,9 @@ class QuickTagActions extends StatelessWidget {
     final _tagName = GlobalKey(debugLabel: 'Tag Name');
     final _tagTypeController = TextEditingController();
     final _tagType = GlobalKey(debugLabel: 'Tag Type');
-    if(title == "View Tags"){
+    if(title == "View\nTags"){
       Navigator.of(context).push(MaterialPageRoute(builder: (_) => ViewTagsPage()));
-    }else if(title == "Update Tag") {
+    }else if(title == "Update\nTag") {
         new Container(
           width: 450.0,
         );

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sparkline/flutter_sparkline.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-
+import 'constants.dart';
 import 'explore_devices.dart';
-import 'explore_users.dart';
+import 'staffs_stats.dart';
 
 class ClosedProjectDetailsPage extends StatefulWidget
 {
@@ -31,32 +31,41 @@ class ClosedProjectDetailsPageState extends State<ClosedProjectDetailsPage>
   @override
   Widget build(BuildContext context)
   {
+    final _bkey = GlobalKey(debugLabel: 'Back Key');
     return Scaffold
     (
       appBar: AppBar
       (
+        leading: new BackButton(key: _bkey, color: Colors.black,),
+        title: new Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Icon(Icons.person, color: Colors.black54, size: 20.0,),
+            SizedBox(width: 2.0,),
+            new Expanded(child:
+            new Text('Anirudh\nRajashekar', style: TodoColors.textStyle),
+              flex: 1,
+            )
+          ],
+        ),
         elevation: 2.0,
         backgroundColor: Colors.white,
-//        title: Text('Dashboard', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 30.0)),
         actions: <Widget>
         [
           Container
           (
-            margin: EdgeInsets.only(right: 80.0),
             child: Row
             (
+              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               textDirection: TextDirection.ltr,
               children: <Widget>
               [
-                Icon(Icons.person, color: Colors.black54),
-                Padding(padding: EdgeInsets.only(left: 8.0)),
-                Text('Anirudh\nRajashekar', style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w700, fontSize: 14.0)),
-                Padding(padding: EdgeInsets.only(left: 8.0)),
                 RaisedButton(
                 padding: EdgeInsets.all(8.0),
                 onPressed: () {},
-                 child: new Text('Send Payment Request'),
+                 child: new Text('Send Payment Request', style: TodoColors.textStyle4,),
                )
               ],
             ),
@@ -128,11 +137,11 @@ class ClosedProjectDetailsPageState extends State<ClosedProjectDetailsPage>
                   ),
                   Padding(padding: EdgeInsets.only(bottom: 16.0)),
                   Text('General', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 24.0)),
-                  Text('Staff & Stats', style: TextStyle(color: Colors.black45)),
+                  Expanded(child:Text('Staff & Stats\nScan QR Code', style: TextStyle(color: Colors.black45)), flex: 1,),
                 ]
               ),
             ),
-            onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => ExploreUsersPage())),
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => StaffNStatsPage())),
           ),
           _buildTile(
             Padding

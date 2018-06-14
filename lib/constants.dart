@@ -50,5 +50,10 @@ class TodoColors {
       fontWeight: FontWeight.w900,
       fontSize: 13.0,
       fontFamily: ProfileFontNames.TimeBurner);
+
+  static final textStyle5 = new TextStyle(
+      fontWeight: FontWeight.w900,
+      fontSize: 20.0,
+      fontFamily: ProfileFontNames.TimeBurner);
 }
 

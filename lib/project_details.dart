@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sparkline/flutter_sparkline.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'constants.dart';
-import 'explore_users.dart';
+import 'staffs_stats.dart';
 import 'explore_devices.dart';
 
 class ProjectDetailsPage extends StatefulWidget
@@ -55,7 +55,6 @@ class ProjectDetailsPageState extends State<ProjectDetailsPage>
         [
           Container
           (
-//            margin: EdgeInsets.only(right: 80.0),
             child: Row
             (
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -138,11 +137,11 @@ class ProjectDetailsPageState extends State<ProjectDetailsPage>
                   ),
                   Padding(padding: EdgeInsets.only(bottom: 16.0)),
                   Text('General', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 24.0)),
-                  Text('Staff & Stats', style: TextStyle(color: Colors.black45)),
+                  Expanded(child:Text('Staff & Stats\nScan QR Code', style: TextStyle(color: Colors.black45)), flex: 1,),
                 ]
               ),
             ),
-            onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => ExploreUsersPage())),
+            onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => StaffNStatsPage())),
           ),
           _buildTile(
             Padding

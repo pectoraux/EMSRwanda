@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'supplemental/cut_corners_border.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'project_details.dart';
+import 'staffs_stats.dart';
 import 'constants.dart';
 import 'shop_items_page.dart';
 
@@ -33,7 +33,7 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
           leading: new BackButton(key: _bkey, color: Colors.black,),
           elevation: 2.0,
           backgroundColor: Colors.white,
-          title: Text('Your Projects', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 30.0)),
+          title: Text('Your Projects', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 25.0)),
           actions: <Widget>
           [
             Container

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import 'supplemental/cut_corners_border.dart';
@@ -21,9 +20,7 @@ class EditUserPageState extends State<EditUserPage> {
 
   @override
   Widget build(BuildContext context) {
-
-
-    final converter =  ListView(
+    final converter = ListView(
       padding: EdgeInsets.symmetric(horizontal: 10.0),
       children: <Widget>[
         new QuickUserActions(),
@@ -82,7 +79,6 @@ class EditUserPageState extends State<EditUserPage> {
         const SizedBox(height: 12.0),
 
 
-
         ButtonBar(
           children: <Widget>[
             FlatButton(
@@ -102,10 +98,13 @@ class EditUserPageState extends State<EditUserPage> {
                 borderRadius: BorderRadius.all(Radius.circular(7.0)),
               ),
               onPressed: () {
-                if(_userNameController.value.text.trim() != "" && _userRoleController.value.text.trim() != ""){
-                  showInSnackBar("User Created Successfully", TodoColors.accent);
-                }else{
-                  showInSnackBar("Please Specify A Value For All Fields", Colors.redAccent);
+                if (_userNameController.value.text.trim() != "" &&
+                    _userRoleController.value.text.trim() != "") {
+                  showInSnackBar(
+                      "User Created Successfully", TodoColors.accent);
+                } else {
+                  showInSnackBar("Please Specify A Value For All Fields",
+                      Colors.redAccent);
                 }
               },
             ),

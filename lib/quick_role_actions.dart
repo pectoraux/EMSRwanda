@@ -58,7 +58,8 @@ class QuickRoleActions extends StatelessWidget {
     );
   }
 
-  Widget _buildAction(BuildContext context, String title, VoidCallback action, Color color,
+  Widget _buildAction(BuildContext context, String title, VoidCallback action,
+      Color color,
       Gradient gradient, ImageProvider backgroundImage) {
     final textStyle = new TextStyle(
         color: Colors.white,
@@ -111,12 +112,14 @@ class QuickRoleActions extends StatelessWidget {
             ), // END BACKGROUND IMAGE
 
             new Container(
-              alignment: Alignment.topLeft,
-              padding: const EdgeInsets.only(left: 10.0, top: 10.0),
+                alignment: Alignment.topLeft,
+                padding: const EdgeInsets.only(left: 10.0, top: 10.0),
                 child: InkWell
                   (
                   // Do onTap() if it isn't null, otherwise do print()
-                  onTap: onTap != null ? () => onTap(context, title) : () { print('Not set yet'); },
+                  onTap: onTap != null ? () => onTap(context, title) : () {
+                    print('Not set yet');
+                  },
                   child: new Text(title, style: textStyle),
                 )
             ),
@@ -126,16 +129,17 @@ class QuickRoleActions extends StatelessWidget {
     );
   }
 
-  void onTap(BuildContext context, String title){
+  void onTap(BuildContext context, String title) {
     final _padding = EdgeInsets.all(5.0);
-    if(title == "View\nRoles"){
-      Navigator.of(context).push(MaterialPageRoute(builder: (_) => ViewRolesPage()));
-    }else if(title == "Update\nRole") {
+    if (title == "View\nRoles") {
+      Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => ViewRolesPage()));
+    } else if (title == "Update\nRole") {
       showSearchDialog(context);
     }
   }
 
-  void showSearchDialog(BuildContext context){
+  void showSearchDialog(BuildContext context) {
     final _roleNameController = TextEditingController();
     final _roleName = GlobalKey(debugLabel: 'Project Title');
 
@@ -185,8 +189,7 @@ class QuickRoleActions extends StatelessWidget {
               shape: BeveledRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(7.0)),
               ),
-              onPressed: () {
-              },
+              onPressed: () {},
             ),
 
           ],

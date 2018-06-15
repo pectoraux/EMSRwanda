@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'flutter_calendar.dart';
 
 
-
 class CalendarViewApp extends StatelessWidget {
   void handleNewDate(date) {
     print(date);

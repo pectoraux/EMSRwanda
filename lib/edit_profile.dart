@@ -1,12 +1,9 @@
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
 
 import 'supplemental/cut_corners_border.dart';
 import 'constants.dart';
-
-
 
 
 class EditProfilePage extends StatefulWidget {
@@ -59,16 +56,16 @@ class EditProfilePageState extends State<EditProfilePage> {
   final _role = GlobalKey(debugLabel: 'Role');
   final _dob = GlobalKey(debugLabel: 'Date Of Birth');
   final _emergencyContactName = GlobalKey(debugLabel: 'Emergency Contact Name');
-  final _emergencyContactPhone = GlobalKey(debugLabel: 'Emergency Contact Phone');
+  final _emergencyContactPhone = GlobalKey(
+      debugLabel: 'Emergency Contact Phone');
   final _padding = EdgeInsets.all(5.0);
 
   @override
   Widget build(BuildContext context) {
-
     final padding = Padding(padding: _padding);
 
 
-    final converter =  ListView(
+    final converter = ListView(
         padding: EdgeInsets.symmetric(horizontal: 10.0),
         children: <Widget>[
 

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import 'supplemental/cut_corners_border.dart';
@@ -17,14 +16,13 @@ class EditPasswordPageState extends State<EditPasswordPage> {
   final _newPasswordConfirmationController = TextEditingController();
   final _oldPassword = GlobalKey(debugLabel: 'Old Password');
   final _newPassword = GlobalKey(debugLabel: 'New Password');
-  final _newPasswordConfirmation = GlobalKey(debugLabel: 'New Password Confirmation');
+  final _newPasswordConfirmation = GlobalKey(
+      debugLabel: 'New Password Confirmation');
 
 
   @override
   Widget build(BuildContext context) {
-
-
-    final converter =  ListView(
+    final converter = ListView(
       padding: EdgeInsets.symmetric(horizontal: 10.0),
       children: <Widget>[
 
@@ -82,7 +80,6 @@ class EditPasswordPageState extends State<EditPasswordPage> {
         const SizedBox(height: 12.0),
 
 
-
         ButtonBar(
           children: <Widget>[
             FlatButton(
@@ -104,11 +101,15 @@ class EditPasswordPageState extends State<EditPasswordPage> {
                 borderRadius: BorderRadius.all(Radius.circular(7.0)),
               ),
               onPressed: () {
-                if(_oldPasswordController.value.text.trim() != "" && _newPasswordController.value.text.trim() != "" &&
-                _newPasswordConfirmationController.value.text.trim() != ""){
-                  showInSnackBar("Password Changed Successfully", TodoColors.accent);
-                }else{
-                  showInSnackBar("Please Specify A Value For All Fields", Colors.redAccent);
+                if (_oldPasswordController.value.text.trim() != "" &&
+                    _newPasswordController.value.text.trim() != "" &&
+                    _newPasswordConfirmationController.value.text.trim() !=
+                        "") {
+                  showInSnackBar(
+                      "Password Changed Successfully", TodoColors.accent);
+                } else {
+                  showInSnackBar("Please Specify A Value For All Fields",
+                      Colors.redAccent);
                 }
               },
             ),

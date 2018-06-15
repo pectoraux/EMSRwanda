@@ -1,4 +1,3 @@
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -6,8 +5,6 @@ import 'package:flutter/material.dart';
 import 'supplemental/cut_corners_border.dart';
 import 'constants.dart';
 import 'edit_profile.dart';
-
-
 
 
 class ViewBankingPage extends StatefulWidget {
@@ -23,11 +20,10 @@ class ViewBankingPageState extends State<ViewBankingPage> {
 
   @override
   Widget build(BuildContext context) {
-
     final padding = Padding(padding: _padding);
 
 
-    final converter =  ListView(
+    final converter = ListView(
         padding: EdgeInsets.symmetric(horizontal: 10.0),
         children: <Widget>[
 
@@ -90,7 +86,8 @@ class ViewBankingPageState extends State<ViewBankingPage> {
                   borderRadius: BorderRadius.all(Radius.circular(7.0)),
                 ),
                 onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => EditProfilePage()));
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (_) => EditProfilePage()));
                 },
               ),
             ],

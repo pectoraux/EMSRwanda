@@ -48,7 +48,10 @@ class _BackdropPanel extends StatelessWidget {
               padding: EdgeInsetsDirectional.only(start: 16.0),
               alignment: AlignmentDirectional.centerStart,
               child: DefaultTextStyle(
-                style: Theme.of(context).textTheme.subhead,
+                style: Theme
+                    .of(context)
+                    .textTheme
+                    .subhead,
                 child: title,
               ),
             ),
@@ -80,7 +83,10 @@ class _BackdropTitle extends AnimatedWidget {
   Widget build(BuildContext context) {
     final Animation<double> animation = this.listenable;
     return DefaultTextStyle(
-      style: Theme.of(context).primaryTextTheme.title,
+      style: Theme
+          .of(context)
+          .primaryTextTheme
+          .title,
       softWrap: false,
       overflow: TextOverflow.ellipsis,
       // Here, we do a custom cross fade between backTitle and frontTitle.
@@ -126,7 +132,8 @@ class Backdrop extends StatefulWidget {
     @required this.backPanel,
     @required this.frontTitle,
     @required this.backTitle,
-  })  : assert(currentCategory != null),
+  })
+      : assert(currentCategory != null),
         assert(frontPanel != null),
         assert(backPanel != null),
         assert(frontTitle != null),
@@ -161,7 +168,7 @@ class _BackdropState extends State<Backdrop>
       setState(() {
         _controller.fling(
             velocity:
-                _backdropPanelVisible ? -_kFlingVelocity : _kFlingVelocity);
+            _backdropPanelVisible ? -_kFlingVelocity : _kFlingVelocity);
       });
     } else if (!_backdropPanelVisible) {
       setState(() {
@@ -215,7 +222,7 @@ class _BackdropState extends State<Backdrop>
     else
       _controller.fling(
           velocity:
-              _controller.value < 0.5 ? -_kFlingVelocity : _kFlingVelocity);
+          _controller.value < 0.5 ? -_kFlingVelocity : _kFlingVelocity);
   }
 
   Widget _buildStack(BuildContext context, BoxConstraints constraints) {

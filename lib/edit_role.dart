@@ -1,4 +1,3 @@
-
 import 'profile_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -32,9 +31,7 @@ class EditRolesPageState extends State<EditRolesPage> {
 
   @override
   Widget build(BuildContext context) {
-
-
-    final converter =  ListView(
+    final converter = ListView(
       padding: EdgeInsets.symmetric(horizontal: 10.0),
       children: <Widget>[
         new QuickRoleActions(),
@@ -68,7 +65,7 @@ class EditRolesPageState extends State<EditRolesPage> {
 
 
         new CheckboxListTile(
-          title: Text('Can Create User',style: TodoColors.textStyle2,),
+          title: Text('Can Create User', style: TodoColors.textStyle2,),
           value: _createUserPermission,
           onChanged: (bool permission) {
             setState(() {
@@ -82,7 +79,9 @@ class EditRolesPageState extends State<EditRolesPage> {
           title: Text('Can Create Project', style: TodoColors.textStyle2,),
           value: _createProjectPermission,
           onChanged: (bool permission) {
-            setState(() { _createProjectPermission = permission; });
+            setState(() {
+              _createProjectPermission = permission;
+            });
           },
           secondary: new Icon(
             Icons.work, color: TodoColors.accent, size: 30.0,),
@@ -91,7 +90,9 @@ class EditRolesPageState extends State<EditRolesPage> {
           title: Text('Can Create Role', style: TodoColors.textStyle2,),
           value: _createRolePermission,
           onChanged: (bool permission) {
-            setState(() { _createRolePermission = permission; });
+            setState(() {
+              _createRolePermission = permission;
+            });
           },
           secondary: new Icon(
             Icons.library_add, color: TodoColors.accent, size: 30.0,),
@@ -100,7 +101,9 @@ class EditRolesPageState extends State<EditRolesPage> {
           title: Text('Can Create Tag', style: TodoColors.textStyle2,),
           value: _createTagPermission,
           onChanged: (bool permission) {
-            setState(() { _createTagPermission = permission; });
+            setState(() {
+              _createTagPermission = permission;
+            });
           },
           secondary: new Icon(
             Icons.title, color: TodoColors.accent, size: 30.0,),
@@ -109,7 +112,9 @@ class EditRolesPageState extends State<EditRolesPage> {
           title: Text('Can Grant Permission', style: TodoColors.textStyle2,),
           value: _grantUserPermission,
           onChanged: (bool permission) {
-            setState(() { _grantUserPermission = permission; });
+            setState(() {
+              _grantUserPermission = permission;
+            });
           },
           secondary: new Icon(
             LineAwesomeIcons.thumbsUp, color: TodoColors.accent, size: 30.0,),
@@ -141,10 +146,12 @@ class EditRolesPageState extends State<EditRolesPage> {
                 borderRadius: BorderRadius.all(Radius.circular(7.0)),
               ),
               onPressed: () {
-                if(_roleNameController.value.text.trim() != ""){
-                  showInSnackBar("Project Created Successfully", TodoColors.accent);
-                }else{
-                  showInSnackBar("Please Specify A Value For Role Name", Colors.redAccent);
+                if (_roleNameController.value.text.trim() != "") {
+                  showInSnackBar(
+                      "Project Created Successfully", TodoColors.accent);
+                } else {
+                  showInSnackBar(
+                      "Please Specify A Value For Role Name", Colors.redAccent);
                 }
               },
             ),

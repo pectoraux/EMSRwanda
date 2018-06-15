@@ -27,7 +27,8 @@ class CategoryTile extends StatelessWidget {
     Key key,
     @required this.category,
     this.onTap,
-  })  : assert(category != null),
+  })
+      : assert(category != null),
         super(key: key);
 
   /// Builds a custom widget that shows [Category] information.
@@ -41,7 +42,7 @@ class CategoryTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color:
-          onTap == null ? Color.fromRGBO(50, 50, 50, 0.2) : Colors.transparent,
+      onTap == null ? Color.fromRGBO(50, 50, 50, 0.2) : Colors.transparent,
       child: Container(
         height: _rowHeight,
         child: InkWell(
@@ -68,7 +69,10 @@ class CategoryTile extends StatelessWidget {
                   child: Text(
                     category.name,
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.headline,
+                    style: Theme
+                        .of(context)
+                        .textTheme
+                        .headline,
                   ),
                 ),
               ],

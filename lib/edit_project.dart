@@ -1,4 +1,3 @@
-
 import 'profile_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -40,8 +39,8 @@ class EditProjectPageState extends State<EditProjectPage> {
     "Phone",
   ];
   List devices_values = [false, false, false, false];
-  List<Color> _mcolors = [Colors.brown[500], Colors.brown[500], Colors.brown[500], Colors.brown[500]];
-
+  List<Color> _mcolors = [
+    Colors.brown[500], Colors.brown[500], Colors.brown[500], Colors.brown[500]];
 
 
   @override
@@ -179,11 +178,11 @@ class EditProjectPageState extends State<EditProjectPage> {
           crossAxisCount: 3,
           children: new List.generate(devices.length, (i) =>
           new InkWell(
-            onTap:  () {
+            onTap: () {
               setState(() {
-                if(_mcolors[i] == Colors.brown[500]){
+                if (_mcolors[i] == Colors.brown[500]) {
                   _mcolors[i] = Colors.green[500];
-                }else{
+                } else {
                   _mcolors[i] = Colors.brown[500];
                 }
               });
@@ -212,7 +211,7 @@ class EditProjectPageState extends State<EditProjectPage> {
             if (_projectStaffRolesController.value.text.trim() != "") {
               _projectStaffRolesController.clear();
               setState(() {
-                for(int i = 0; i < _mcolors.length; i++){
+                for (int i = 0; i < _mcolors.length; i++) {
                   _mcolors.removeAt(i);
                   _mcolors.insert(i, Colors.brown[500]);
                 }
@@ -305,9 +304,9 @@ class EditProjectPageState extends State<EditProjectPage> {
   }
 
   Color onTap(BuildContext context, Color c) {
-    if(c == Colors.brown[500]){
+    if (c == Colors.brown[500]) {
       return Colors.green[500];
-    }else{
+    } else {
       return Colors.brown[500];
     }
   }

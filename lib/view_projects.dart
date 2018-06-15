@@ -5,19 +5,16 @@ import 'staffs_stats.dart';
 import 'constants.dart';
 import 'shop_items_page.dart';
 
-class ViewProjectsPage extends StatefulWidget
-{
+class ViewProjectsPage extends StatefulWidget {
   @override
   ViewProjectsPageState createState() => ViewProjectsPageState();
 }
 
-class ViewProjectsPageState extends State<ViewProjectsPage>
-{
+class ViewProjectsPageState extends State<ViewProjectsPage> {
   static const _padding = EdgeInsets.all(5.0);
 
   @override
-  Widget build(BuildContext context)
-  {
+  Widget build(BuildContext context) {
     final _bkey = GlobalKey(debugLabel: 'Back Key');
     final _projectTitleController = TextEditingController();
     final _projectTitle = GlobalKey(debugLabel: 'Project Title');
@@ -33,7 +30,9 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
           leading: new BackButton(key: _bkey, color: Colors.black,),
           elevation: 2.0,
           backgroundColor: Colors.white,
-          title: Text('Your Projects', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 25.0)),
+          title: Text('Your Projects', style: TextStyle(color: Colors.black,
+              fontWeight: FontWeight.w700,
+              fontSize: 25.0)),
           actions: <Widget>
           [
             Container
@@ -49,7 +48,7 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
                     elevation: 200.0,
                     child: new Icon(Icons.search),
                     backgroundColor: TodoColors.accent,
-                    onPressed:(){
+                    onPressed: () {
                       new Container(
                         width: 450.0,
                       );
@@ -58,7 +57,8 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
                         barrierDismissible: false, // user must tap button!
                         builder: (BuildContext context) {
                           return new AlertDialog(
-                            title: new Text('SEARCH  PROJECTS', style: TodoColors.textStyle,),
+                            title: new Text(
+                              'SEARCH  PROJECTS', style: TodoColors.textStyle,),
                             content: new SingleChildScrollView(
                               child: new ListBody(
                                 children: <Widget>[
@@ -86,10 +86,10 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
                                     child: Text('ADD LOCATION'),
                                     elevation: 8.0,
                                     shape: BeveledRectangleBorder(
-                                      borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(7.0)),
                                     ),
-                                    onPressed: () {
-                                    },
+                                    onPressed: () {},
                                   ),
                                   SizedBox(height: 12.0),
                                   TextField(
@@ -105,10 +105,10 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
                                     child: Text('ADD TAG'),
                                     elevation: 8.0,
                                     shape: BeveledRectangleBorder(
-                                      borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(7.0)),
                                     ),
-                                    onPressed: () {
-                                    },
+                                    onPressed: () {},
                                   ),
                                   SizedBox(height: 12.0),
                                 ],
@@ -120,7 +120,8 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
                               FlatButton(
                                 child: Text('CANCEL'),
                                 shape: BeveledRectangleBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(7.0)),
                                 ),
                                 onPressed: () {
                                   Navigator.of(context).pop();
@@ -131,10 +132,10 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
                                 child: Text('SEARCH'),
                                 elevation: 8.0,
                                 shape: BeveledRectangleBorder(
-                                  borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                                  borderRadius: BorderRadius.all(
+                                      Radius.circular(7.0)),
                                 ),
-                                onPressed: () {
-                                },
+                                onPressed: () {},
                               ),
 
                             ],
@@ -170,8 +171,11 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>
                         [
-                          Text('Kigali, Gisenyi', style: TextStyle(color: TodoColors.accent)),
-                          Text('FSI', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 25.0))
+                          Text('Kigali, Gisenyi',
+                              style: TextStyle(color: TodoColors.accent)),
+                          Text('FSI', style: TextStyle(color: Colors.black,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 25.0))
                         ],
                       ),
                       Material
@@ -183,7 +187,8 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
                               child: Padding
                                 (
                                 padding: const EdgeInsets.all(16.0),
-                                child: Icon(Icons.timeline, color: Colors.white, size: 30.0),
+                                child: Icon(Icons.timeline, color: Colors.white,
+                                    size: 30.0),
                               )
                           )
                       )
@@ -208,8 +213,12 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>
                         [
-                          Text('Remera, Gaculiro', style: TextStyle(color: TodoColors.accent)),
-                          Text('CookStoves', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 25.0))
+                          Text('Remera, Gaculiro',
+                              style: TextStyle(color: TodoColors.accent)),
+                          Text('CookStoves', style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 25.0))
                         ],
                       ),
                       Material
@@ -221,7 +230,8 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
                               child: Padding
                                 (
                                 padding: const EdgeInsets.all(16.0),
-                                child: Icon(Icons.timeline, color: Colors.white, size: 30.0),
+                                child: Icon(Icons.timeline, color: Colors.white,
+                                    size: 30.0),
                               )
                           )
                       )
@@ -246,8 +256,11 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>
                         [
-                          Text('Kacyiru, Kimironko', style: TextStyle(color: TodoColors.accent)),
-                          Text('MISM', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 25.0))
+                          Text('Kacyiru, Kimironko',
+                              style: TextStyle(color: TodoColors.accent)),
+                          Text('MISM', style: TextStyle(color: Colors.black,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 25.0))
                         ],
                       ),
                       Material
@@ -259,7 +272,8 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
                               child: Padding
                                 (
                                 padding: const EdgeInsets.all(16.0),
-                                child: Icon(Icons.timeline, color: Colors.white, size: 30.0),
+                                child: Icon(Icons.timeline, color: Colors.white,
+                                    size: 30.0),
                               )
                           )
                       )
@@ -284,8 +298,11 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>
                         [
-                          Text('Kiyovu, Nyamirambo', style: TextStyle(color: TodoColors.accent)),
-                          Text('PEPSI', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 25.0))
+                          Text('Kiyovu, Nyamirambo',
+                              style: TextStyle(color: TodoColors.accent)),
+                          Text('PEPSI', style: TextStyle(color: Colors.black,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 25.0))
                         ],
                       ),
                       Material
@@ -297,7 +314,8 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
                               child: Padding
                                 (
                                 padding: const EdgeInsets.all(16.0),
-                                child: Icon(Icons.timeline, color: Colors.white, size: 30.0),
+                                child: Icon(Icons.timeline, color: Colors.white,
+                                    size: 30.0),
                               )
                           )
                       )
@@ -322,8 +340,12 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>
                         [
-                          Text('Kigali, Gaculiro', style: TextStyle(color: TodoColors.accent)),
-                          Text('Students Report', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 25.0))
+                          Text('Kigali, Gaculiro',
+                              style: TextStyle(color: TodoColors.accent)),
+                          Text('Students Report', style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 25.0))
                         ],
                       ),
                       Material
@@ -335,7 +357,8 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
                               child: Padding
                                 (
                                 padding: const EdgeInsets.all(16.0),
-                                child: Icon(Icons.timeline, color: Colors.white, size: 30.0),
+                                child: Icon(Icons.timeline, color: Colors.white,
+                                    size: 30.0),
                               )
                           )
                       )
@@ -360,8 +383,11 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>
                         [
-                          Text('Kacyiru', style: TextStyle(color: TodoColors.accent)),
-                          Text('MISM', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 25.0))
+                          Text('Kacyiru',
+                              style: TextStyle(color: TodoColors.accent)),
+                          Text('MISM', style: TextStyle(color: Colors.black,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 25.0))
                         ],
                       ),
                       Material
@@ -373,7 +399,8 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
                               child: Padding
                                 (
                                 padding: const EdgeInsets.all(16.0),
-                                child: Icon(Icons.timeline, color: Colors.white, size: 30.0),
+                                child: Icon(Icons.timeline, color: Colors.white,
+                                    size: 30.0),
                               )
                           )
                       )
@@ -398,8 +425,12 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>
                         [
-                          Text('Kiyovu', style: TextStyle(color: TodoColors.accent)),
-                          Text('RRA Survey', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 25.0))
+                          Text('Kiyovu',
+                              style: TextStyle(color: TodoColors.accent)),
+                          Text('RRA Survey', style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 25.0))
                         ],
                       ),
                       Material
@@ -411,7 +442,8 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
                               child: Padding
                                 (
                                 padding: const EdgeInsets.all(16.0),
-                                child: Icon(Icons.timeline, color: Colors.white, size: 30.0),
+                                child: Icon(Icons.timeline, color: Colors.white,
+                                    size: 30.0),
                               )
                           )
                       )
@@ -436,8 +468,11 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>
                         [
-                          Text('Gisenyi', style: TextStyle(color: TodoColors.accent)),
-                          Text('ALI', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 25.0))
+                          Text('Gisenyi',
+                              style: TextStyle(color: TodoColors.accent)),
+                          Text('ALI', style: TextStyle(color: Colors.black,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 25.0))
                         ],
                       ),
                       Material
@@ -449,7 +484,8 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
                               child: Padding
                                 (
                                 padding: const EdgeInsets.all(16.0),
-                                child: Icon(Icons.timeline, color: Colors.white, size: 30.0),
+                                child: Icon(Icons.timeline, color: Colors.white,
+                                    size: 30.0),
                               )
                           )
                       )
@@ -474,8 +510,11 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>
                         [
-                          Text('Gaculiro', style: TextStyle(color: TodoColors.accent)),
-                          Text('LATI', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 25.0))
+                          Text('Gaculiro',
+                              style: TextStyle(color: TodoColors.accent)),
+                          Text('LATI', style: TextStyle(color: Colors.black,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 25.0))
                         ],
                       ),
                       Material
@@ -487,7 +526,8 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
                               child: Padding
                                 (
                                 padding: const EdgeInsets.all(16.0),
-                                child: Icon(Icons.timeline, color: Colors.white, size: 30.0),
+                                child: Icon(Icons.timeline, color: Colors.white,
+                                    size: 30.0),
                               )
                           )
                       )
@@ -512,8 +552,11 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>
                         [
-                          Text('Remera', style: TextStyle(color: TodoColors.accent)),
-                          Text('VINE', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 25.0))
+                          Text('Remera',
+                              style: TextStyle(color: TodoColors.accent)),
+                          Text('VINE', style: TextStyle(color: Colors.black,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 25.0))
                         ],
                       ),
                       Material
@@ -525,7 +568,8 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
                               child: Padding
                                 (
                                 padding: const EdgeInsets.all(16.0),
-                                child: Icon(Icons.timeline, color: Colors.white, size: 30.0),
+                                child: Icon(Icons.timeline, color: Colors.white,
+                                    size: 30.0),
                               )
                           )
                       )
@@ -552,7 +596,7 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
     );
   }
 
-  void onTap(){
+  void onTap() {
     new Container(
       width: 450.0,
     );
@@ -589,8 +633,7 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
               shape: BeveledRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(7.0)),
               ),
-              onPressed: () {
-              },
+              onPressed: () {},
             ),
 
           ],
@@ -607,7 +650,9 @@ class ViewProjectsPageState extends State<ViewProjectsPage>
         child: InkWell
           (
           // Do onTap() if it isn't null, otherwise do print()
-            onTap: onTap != null ? () => onTap() : () { print('Not set yet'); },
+            onTap: onTap != null ? () => onTap() : () {
+              print('Not set yet');
+            },
             child: child
         )
     );

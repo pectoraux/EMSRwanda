@@ -58,7 +58,8 @@ class QuickTagActions extends StatelessWidget {
     );
   }
 
-  Widget _buildAction(BuildContext context, String title, VoidCallback action, Color color,
+  Widget _buildAction(BuildContext context, String title, VoidCallback action,
+      Color color,
       Gradient gradient, ImageProvider backgroundImage) {
     final textStyle = new TextStyle(
         color: Colors.white,
@@ -111,12 +112,14 @@ class QuickTagActions extends StatelessWidget {
             ), // END BACKGROUND IMAGE
 
             new Container(
-              alignment: Alignment.topLeft,
-              padding: const EdgeInsets.only(left: 10.0, top: 10.0),
+                alignment: Alignment.topLeft,
+                padding: const EdgeInsets.only(left: 10.0, top: 10.0),
                 child: InkWell
                   (
                   // Do onTap() if it isn't null, otherwise do print()
-                  onTap: onTap != null ? () => onTap(context, title) : () { print('Not set yet'); },
+                  onTap: onTap != null ? () => onTap(context, title) : () {
+                    print('Not set yet');
+                  },
                   child: new Text(title, style: textStyle),
                 )
             ),
@@ -126,79 +129,79 @@ class QuickTagActions extends StatelessWidget {
     );
   }
 
-  void onTap(BuildContext context, String title){
+  void onTap(BuildContext context, String title) {
     final _padding = EdgeInsets.all(5.0);
     final _tagNameController = TextEditingController();
     final _tagName = GlobalKey(debugLabel: 'Tag Name');
     final _tagTypeController = TextEditingController();
     final _tagType = GlobalKey(debugLabel: 'Tag Type');
-    if(title == "View\nTags"){
-      Navigator.of(context).push(MaterialPageRoute(builder: (_) => ViewTagsPage()));
-    }else if(title == "Update\nTag") {
-        new Container(
-          width: 450.0,
-        );
+    if (title == "View\nTags") {
+      Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => ViewTagsPage()));
+    } else if (title == "Update\nTag") {
+      new Container(
+        width: 450.0,
+      );
 
-        showDialog<Null>(
-          context: context,
-          barrierDismissible: false, // user must tap button!
-          builder: (BuildContext context) {
-            return new AlertDialog(
-              title: new Text('SEARCH  TAGS', style: TodoColors.textStyle,),
-              content: new SingleChildScrollView(
-                child: new ListBody(
-                  children: <Widget>[
-                    SizedBox(height: 12.0),
-                    TextField(
-                      key: _tagName,
-                      controller: _tagNameController,
-                      decoration: InputDecoration(
-                        labelText: 'Tag Name',
-                        labelStyle: TodoColors.textStyle2,
-                        border: CutCornersBorder(),
-                      ),
+      showDialog<Null>(
+        context: context,
+        barrierDismissible: false, // user must tap button!
+        builder: (BuildContext context) {
+          return new AlertDialog(
+            title: new Text('SEARCH  TAGS', style: TodoColors.textStyle,),
+            content: new SingleChildScrollView(
+              child: new ListBody(
+                children: <Widget>[
+                  SizedBox(height: 12.0),
+                  TextField(
+                    key: _tagName,
+                    controller: _tagNameController,
+                    decoration: InputDecoration(
+                      labelText: 'Tag Name',
+                      labelStyle: TodoColors.textStyle2,
+                      border: CutCornersBorder(),
                     ),
-                    SizedBox(height: 12.0),
-                    TextField(
-                      key: _tagType,
-                      controller: _tagTypeController,
-                      decoration: InputDecoration(
-                        labelText: 'Tag Type',
-                        labelStyle: TodoColors.textStyle2,
-                        border: CutCornersBorder(),
-                      ),
+                  ),
+                  SizedBox(height: 12.0),
+                  TextField(
+                    key: _tagType,
+                    controller: _tagTypeController,
+                    decoration: InputDecoration(
+                      labelText: 'Tag Type',
+                      labelStyle: TodoColors.textStyle2,
+                      border: CutCornersBorder(),
                     ),
-                    SizedBox(height: 12.0,),
-                  ],
-                ),
-
+                  ),
+                  SizedBox(height: 12.0,),
+                ],
               ),
 
-              actions: <Widget>[
-                FlatButton(
-                  child: Text('CANCEL'),
-                  shape: BeveledRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(7.0)),
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
+            ),
 
-                RaisedButton(
-                  child: Text('SEARCH'),
-                  elevation: 8.0,
-                  shape: BeveledRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(7.0)),
-                  ),
-                  onPressed: () {
-                  },
+            actions: <Widget>[
+              FlatButton(
+                child: Text('CANCEL'),
+                shape: BeveledRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(7.0)),
                 ),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
 
-              ],
-            );
-          },
-        );
+              RaisedButton(
+                child: Text('SEARCH'),
+                elevation: 8.0,
+                shape: BeveledRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                ),
+                onPressed: () {},
+              ),
+
+            ],
+          );
+        },
+      );
     }
   }
 }

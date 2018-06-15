@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:date_utils/date_utils.dart';
+import 'constants.dart';
 
 class AnimatedListSample extends StatefulWidget {
   @override
@@ -8,12 +9,16 @@ class AnimatedListSample extends StatefulWidget {
 }
 
 class _AnimatedListSampleState extends State<AnimatedListSample> {
-  final GlobalKey<AnimatedListState> _listKey = new GlobalKey<AnimatedListState>();
-  final GlobalKey<AnimatedListState> _listKey2 = new GlobalKey<AnimatedListState>();
+  final GlobalKey<AnimatedListState> _listKey = new GlobalKey<
+      AnimatedListState>();
+  final GlobalKey<AnimatedListState> _listKey2 = new GlobalKey<
+      AnimatedListState>();
   ListModel<int> _list, _list2;
   int _selectedItem;
-  int _nextItem, last, first; // The next item inserted when the user presses the '+' button.
+  int _nextItem, last,
+      first; // The next item inserted when the user presses the '+' button.
   int curr;
+
   @override
   void initState() {
     super.initState();
@@ -29,10 +34,24 @@ class _AnimatedListSampleState extends State<AnimatedListSample> {
     );
     _nextItem = 0;
   }
-  
-  String getNextWeek(int i){
-    List<String> months = <String>["", "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
-    DateTime targetDay = new DateTime.now().add(new Duration(days: i*7)) ;
+
+  String getNextWeek(int i) {
+    List<String> months = <String>[
+      "",
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "June",
+      "July",
+      "Aug",
+      "Sept",
+      "Oct",
+      "Nov",
+      "Dec"
+    ];
+    DateTime targetDay = new DateTime.now().add(new Duration(days: i * 7));
     DateTime firstDayOfCurrentWeek = Utils.firstDayOfWeek(targetDay);
     DateTime monday = firstDayOfCurrentWeek.add(new Duration(days: 1));
     DateTime lastDayOfCurrentWeek = Utils.lastDayOfWeek(firstDayOfCurrentWeek);
@@ -41,20 +60,23 @@ class _AnimatedListSampleState extends State<AnimatedListSample> {
         .daysInRange(firstDayOfCurrentWeek, lastDayOfCurrentWeek)
         .toList().sublist(0, 7);
     String result;
-    if(i == 0){
+    if (i == 0) {
       result = "Current week";
-    }else if (i == 1) {
+    } else if (i == 1) {
       result = i.toString() + " week from now";
-    }else{
+    } else {
       result = i.toString() + " weeks from now";
     }
-    result += "\n " + months[monday.month] + " " + monday.day.toString() + " To " + months[friday.month] + " " + friday.day.toString();
+    result +=
+        "\n " + months[monday.month] + " " + monday.day.toString() + " To " +
+            months[friday.month] + " " + friday.day.toString();
     print(result);
     return result;
   }
 
   // Used to build list items that haven't been removed.
-  Widget _buildItem(BuildContext context, int index, Animation<double> animation) {
+  Widget _buildItem(BuildContext context, int index,
+      Animation<double> animation) {
     curr = index;
     return new CardItem(
       animation: animation,
@@ -74,7 +96,8 @@ class _AnimatedListSampleState extends State<AnimatedListSample> {
   // completed (even though it's gone as far this ListModel is concerned).
   // The widget will be used by the [AnimatedListState.removeItem] method's
   // [AnimatedListRemovedItemBuilder] parameter.
-  Widget _buildRemovedItem(int item, BuildContext context, Animation<double> animation) {
+  Widget _buildRemovedItem(int item, BuildContext context,
+      Animation<double> animation) {
     curr = _list.indexOf(item);
     return new CardItem(
       animation: animation,
@@ -88,24 +111,23 @@ class _AnimatedListSampleState extends State<AnimatedListSample> {
   // Insert the "next item" into the list model.
   void _insert() {
     int index;
-    if(_list.length == 0) {
+    if (_list.length == 0) {
       last = 0;
       first = 0;
     } else {
-      last = _list[_list.length - 1]+1;
-      first = _list[0]+1;
+      last = _list[_list.length - 1] + 1;
+      first = _list[0] + 1;
     }
-    if(_selectedItem == null) {
-      index = 0;//_list.length;
-        _list.insert(index, first);
-        _list2.insert(index, first);
-    }else{
+    if (_selectedItem == null) {
+      index = 0; //_list.length;
+      _list.insert(index, first);
+      _list2.insert(index, first);
+    } else {
       index = _list2.indexOf(_selectedItem);
       if (_list.indexOf(_list2[index - 1]) == -1) {
         _list.insert(_list.indexOf(_selectedItem), _list2[index - 1]);
       }
     }
-
   }
 
   // Remove the selected item from the list model.
@@ -125,20 +147,20 @@ class _AnimatedListSampleState extends State<AnimatedListSample> {
       home: new Scaffold(
         appBar: new AppBar(
           title: new Container(
-        child: Row
-        (
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>
-            [
-            Icon(Icons.face, color: Colors.white),
-            SizedBox(width: 10.0),
-            Text("Which weeks are \nyou available ?"),
+              child: Row
+                (
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>
+                [
+                  Icon(Icons.face, color: Colors.white),
+                  SizedBox(width: 10.0),
+                  Text("Which weeks are \nyou available ?"),
 
-            ],
-        )
+                ],
+              )
           ),
-          backgroundColor: Colors.blueGrey,
+          backgroundColor: TodoColors.baseColors[8],
           actions: <Widget>[
             new IconButton(
               icon: const Icon(Icons.add_circle),
@@ -179,7 +201,8 @@ class ListModel<E> {
     @required this.listKey,
     @required this.removedItemBuilder,
     Iterable<E> initialItems,
-  }) : assert(listKey != null),
+  })
+      : assert(listKey != null),
         assert(removedItemBuilder != null),
         _items = new List<E>.from(initialItems ?? <E>[]);
 
@@ -209,7 +232,9 @@ class ListModel<E> {
   }
 
   int get length => _items.length;
+
   E operator [](int index) => _items[index];
+
   int indexOf(E item) => _items.indexOf(item);
 }
 
@@ -225,7 +250,8 @@ class CardItem extends StatelessWidget {
     @required this.item,
     @required this.wk,
     this.selected: false
-  }) : assert(animation != null),
+  })
+      : assert(animation != null),
         assert(item != null && item >= 0),
         assert(selected != null),
         super(key: key);
@@ -235,10 +261,13 @@ class CardItem extends StatelessWidget {
   final int item;
   final bool selected;
   final String wk;
-  
+
   @override
   Widget build(BuildContext context) {
-    TextStyle textStyle = Theme.of(context).textTheme.display1;
+    TextStyle textStyle = Theme
+        .of(context)
+        .textTheme
+        .display1;
     if (selected)
       textStyle = textStyle.copyWith(color: Colors.lightGreenAccent[400]);
     return new Padding(

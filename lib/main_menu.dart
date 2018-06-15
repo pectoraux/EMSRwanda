@@ -14,11 +14,21 @@ class MainMenu extends StatelessWidget {
       child: new ListView(
         padding: const EdgeInsets.only(left: 5.0),
         children: <Widget>[
-          _buildListItem("Primary Details", Icons.camera, () {onTap(context, "Primary Details");}),
-          _buildListItem("Banking Details", Icons.account_balance, () {onTap(context, "Banking Details");}),
-          _buildListItem("Insurance Details", Icons.local_hospital, () {onTap(context, "Insurance Details");}),
-          _buildListItem("Project Details", Icons.work, () {onTap(context, "Project Details");}),
-          _buildListItem("Emergency Details", Icons.alarm, () {onTap(context, "Emergency Details");}),
+          _buildListItem("Primary Details", Icons.camera, () {
+            onTap(context, "Primary Details");
+          }),
+          _buildListItem("Banking Details", Icons.account_balance, () {
+            onTap(context, "Banking Details");
+          }),
+          _buildListItem("Insurance Details", Icons.local_hospital, () {
+            onTap(context, "Insurance Details");
+          }),
+          _buildListItem("Project Details", Icons.work, () {
+            onTap(context, "Project Details");
+          }),
+          _buildListItem("Emergency Details", Icons.alarm, () {
+            onTap(context, "Emergency Details");
+          }),
         ],
       ),
     );
@@ -59,17 +69,22 @@ class MainMenu extends StatelessWidget {
     );
   }
 
-  void onTap(BuildContext context, String command){
-    if(command == "Primary Details"){
-      Navigator.of(context).push(MaterialPageRoute(builder: (_) => ViewPrimaryPage()));
-    }else if(command == "Banking Details"){
-      Navigator.of(context).push(MaterialPageRoute(builder: (_) => ViewBankingPage()));
-    }else if (command == "Insurance Details"){
-      Navigator.of(context).push(MaterialPageRoute(builder: (_) => ViewInsurancePage()));
-    }else if (command == "Project Details"){
-      Navigator.of(context).push(MaterialPageRoute(builder: (_) => ViewProjectsPage()));
-    }else if (command == "Emergency Details"){
-      Navigator.of(context).push(MaterialPageRoute(builder: (_) => ViewEmergencyPage()));
+  void onTap(BuildContext context, String command) {
+    if (command == "Primary Details") {
+      Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => ViewPrimaryPage()));
+    } else if (command == "Banking Details") {
+      Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => ViewBankingPage()));
+    } else if (command == "Insurance Details") {
+      Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => ViewInsurancePage()));
+    } else if (command == "Project Details") {
+      Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => ViewProjectsPage()));
+    } else if (command == "Emergency Details") {
+      Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => ViewEmergencyPage()));
     }
   }
 

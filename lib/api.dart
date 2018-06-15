@@ -52,8 +52,8 @@ class Api {
   /// Given two units, converts from one to another.
   ///
   /// Returns a double, which is the converted amount. Returns null on error.
-  Future<double> convert(
-      String category, String amount, String fromUnit, String toUnit) async {
+  Future<double> convert(String category, String amount, String fromUnit,
+      String toUnit) async {
     final uri = Uri.https(_url, '/$category/convert',
         {'amount': amount, 'from': fromUnit, 'to': toUnit});
     final jsonResponse = await _getJson(uri);

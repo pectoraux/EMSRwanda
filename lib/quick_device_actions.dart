@@ -58,7 +58,8 @@ class QuickDeviceActions extends StatelessWidget {
     );
   }
 
-  Widget _buildAction(BuildContext context, String title, VoidCallback action, Color color,
+  Widget _buildAction(BuildContext context, String title, VoidCallback action,
+      Color color,
       Gradient gradient, ImageProvider backgroundImage) {
     final textStyle = new TextStyle(
         color: Colors.white,
@@ -111,12 +112,14 @@ class QuickDeviceActions extends StatelessWidget {
             ), // END BACKGROUND IMAGE
 
             new Container(
-              alignment: Alignment.topLeft,
-              padding: const EdgeInsets.only(left: 10.0, top: 10.0),
+                alignment: Alignment.topLeft,
+                padding: const EdgeInsets.only(left: 10.0, top: 10.0),
                 child: InkWell
                   (
                   // Do onTap() if it isn't null, otherwise do print()
-                  onTap: onTap != null ? () => onTap(context, title) : () { print('Not set yet'); },
+                  onTap: onTap != null ? () => onTap(context, title) : () {
+                    print('Not set yet');
+                  },
                   child: new Text(title, style: textStyle),
                 )
             ),
@@ -126,7 +129,7 @@ class QuickDeviceActions extends StatelessWidget {
     );
   }
 
-  void onTap(BuildContext context, String title){
+  void onTap(BuildContext context, String title) {
     final _padding = EdgeInsets.all(5.0);
     final _deviceNameController = TextEditingController();
     final _deviceName = GlobalKey(debugLabel: 'Device Name');
@@ -135,9 +138,10 @@ class QuickDeviceActions extends StatelessWidget {
     final _deviceConditionController = TextEditingController();
     final _deviceCondition = GlobalKey(debugLabel: 'Device Condition');
 
-    if(title == "View\nDevices"){
-      Navigator.of(context).push(MaterialPageRoute(builder: (_) => ExploreDevicesPage()));
-    }else if(title == "Update\nDevice") {
+    if (title == "View\nDevices") {
+      Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => ExploreDevicesPage()));
+    } else if (title == "Update\nDevice") {
       new Container(
         width: 450.0,
       );
@@ -204,8 +208,7 @@ class QuickDeviceActions extends StatelessWidget {
                 shape: BeveledRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(7.0)),
                 ),
-                onPressed: () {
-                },
+                onPressed: () {},
               ),
 
             ],

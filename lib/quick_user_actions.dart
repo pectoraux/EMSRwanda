@@ -58,7 +58,8 @@ class QuickUserActions extends StatelessWidget {
     );
   }
 
-  Widget _buildAction(BuildContext context, String title, VoidCallback action, Color color,
+  Widget _buildAction(BuildContext context, String title, VoidCallback action,
+      Color color,
       Gradient gradient, ImageProvider backgroundImage) {
     final textStyle = new TextStyle(
         color: Colors.white,
@@ -111,12 +112,14 @@ class QuickUserActions extends StatelessWidget {
             ), // END BACKGROUND IMAGE
 
             new Container(
-              alignment: Alignment.topLeft,
-              padding: const EdgeInsets.only(left: 10.0, top: 10.0),
+                alignment: Alignment.topLeft,
+                padding: const EdgeInsets.only(left: 10.0, top: 10.0),
                 child: InkWell
                   (
                   // Do onTap() if it isn't null, otherwise do print()
-                  onTap: onTap != null ? () => onTap(context, title) : () { print('Not set yet'); },
+                  onTap: onTap != null ? () => onTap(context, title) : () {
+                    print('Not set yet');
+                  },
                   child: new Text(title, style: textStyle),
                 )
             ),
@@ -125,7 +128,8 @@ class QuickUserActions extends StatelessWidget {
       ),
     );
   }
-  void onTap(BuildContext context, String title){
+
+  void onTap(BuildContext context, String title) {
     final _padding = EdgeInsets.all(5.0);
     final _userNameController = TextEditingController();
     final _userName = GlobalKey(debugLabel: 'User Name');
@@ -138,9 +142,10 @@ class QuickUserActions extends StatelessWidget {
     final _userLocations = GlobalKey(debugLabel: 'Users Locations');
     final _tags = GlobalKey(debugLabel: 'Project or User Related Tags');
 
-    if(title == "View\nUsers"){
-      Navigator.of(context).push(MaterialPageRoute(builder: (_) => ExploreUsersPage()));
-    }else if(title == "Update\nUser") {
+    if (title == "View\nUsers") {
+      Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => ExploreUsersPage()));
+    } else if (title == "Update\nUser") {
       new Container(
         width: 450.0,
       );
@@ -200,8 +205,7 @@ class QuickUserActions extends StatelessWidget {
                     shape: BeveledRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(7.0)),
                     ),
-                    onPressed: () {
-                    },
+                    onPressed: () {},
                   ),
                   SizedBox(height: 12.0),
                   TextField(
@@ -219,8 +223,7 @@ class QuickUserActions extends StatelessWidget {
                     shape: BeveledRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(7.0)),
                     ),
-                    onPressed: () {
-                    },
+                    onPressed: () {},
                   ),
                   SizedBox(height: 12.0,),
                 ],
@@ -245,8 +248,7 @@ class QuickUserActions extends StatelessWidget {
                 shape: BeveledRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(7.0)),
                 ),
-                onPressed: () {
-                },
+                onPressed: () {},
               ),
 
             ],

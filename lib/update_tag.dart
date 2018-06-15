@@ -1,4 +1,3 @@
-
 import 'profile_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -23,9 +22,7 @@ class UpdateTagPageState extends State<UpdateTagPage> {
 
   @override
   Widget build(BuildContext context) {
-
-
-    final converter =  ListView(
+    final converter = ListView(
       padding: EdgeInsets.symmetric(horizontal: 10.0),
       children: <Widget>[
 
@@ -99,10 +96,12 @@ class UpdateTagPageState extends State<UpdateTagPage> {
                 borderRadius: BorderRadius.all(Radius.circular(7.0)),
               ),
               onPressed: () {
-                if(_tagNameController.value.text.trim() != "" && _tagTypeController.value.text.trim() != ""){
+                if (_tagNameController.value.text.trim() != "" &&
+                    _tagTypeController.value.text.trim() != "") {
                   showInSnackBar("Tag Updated Successfully", TodoColors.accent);
-                }else{
-                  showInSnackBar("Please Specify A Value For All Fields", Colors.redAccent);
+                } else {
+                  showInSnackBar("Please Specify A Value For All Fields",
+                      Colors.redAccent);
                 }
               },
             ),

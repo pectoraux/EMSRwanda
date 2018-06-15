@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'main_menu.dart';
 import 'models.dart';
@@ -22,12 +21,12 @@ class ProfileAppState extends State<ProfileApp> {
   /// This controller can be used to programmatically
   /// set the current displayed page
   PageController _pageController;
+
   /// Indicating the current displayed page
   int _page = 0;
 
   @override
   Widget build(BuildContext context) {
-
     final navigationItems = <BottomNavigationBarItem>[
       new BottomNavigationBarItem(
           icon: new Icon(Icons.home, color: getColor(0)),
@@ -78,7 +77,7 @@ class ProfileAppState extends State<ProfileApp> {
       ),
       bottomNavigationBar: new BottomNavigationBar(
         currentIndex: _page,
-        items:  navigationItems,
+        items: navigationItems,
         onTap: navigationTapped,
         fixedColor: TodoColors.primaryLight,
         iconSize: 25.0,
@@ -87,8 +86,8 @@ class ProfileAppState extends State<ProfileApp> {
     );
   }
 
-  void onPageChanged(int page){
-    setState((){
+  void onPageChanged(int page) {
+    setState(() {
       this._page = page;
     });
   }
@@ -96,8 +95,7 @@ class ProfileAppState extends State<ProfileApp> {
   /// Called when the user presses on of the
   /// [BottomNavigationBarItem] with corresponding
   /// page index
-  void navigationTapped(int page){
-
+  void navigationTapped(int page) {
     // Animating to the page.
     // You can use whatever duration and curve you like
     _pageController.animateToPage(
@@ -114,19 +112,18 @@ class ProfileAppState extends State<ProfileApp> {
   }
 
   @override
-  void dispose(){
+  void dispose() {
     super.dispose();
     _pageController.dispose();
   }
 
-  Color getColor(int idx){
+  Color getColor(int idx) {
     final iconColor = Color(0xEFCCCCCD);
-    if(_page == idx){
+    if (_page == idx) {
       return TodoColors.primaryDark;
-    }else{
+    } else {
       return iconColor;
     }
-
   }
 }
 

@@ -312,7 +312,6 @@ class _CalendarState extends State<Calendar> {
     );
 
 
-
     if (selected != null) {
       var firstDayOfCurrentWeek = Utils.firstDayOfWeek(selected);
       var lastDayOfCurrentWeek = Utils.lastDayOfWeek(selected);
@@ -330,6 +329,7 @@ class _CalendarState extends State<Calendar> {
 
   var gestureStart;
   var gestureDirection;
+
   void beginSwipe(DragStartDetails gestureDetails) {
     gestureStart = gestureDetails.globalPosition.dx;
   }

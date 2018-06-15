@@ -1,4 +1,3 @@
-
 import 'profile_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -24,9 +23,7 @@ class EditDevicePageState extends State<EditDevicePage> {
 
   @override
   Widget build(BuildContext context) {
-
-
-    final converter =  ListView(
+    final converter = ListView(
       padding: EdgeInsets.symmetric(horizontal: 10.0),
       children: <Widget>[
         new QuickDeviceActions(),
@@ -86,9 +83,7 @@ class EditDevicePageState extends State<EditDevicePage> {
         ),
 
 
-
         const SizedBox(height: 12.0),
-
 
 
         ButtonBar(
@@ -111,11 +106,14 @@ class EditDevicePageState extends State<EditDevicePage> {
                 borderRadius: BorderRadius.all(Radius.circular(7.0)),
               ),
               onPressed: () {
-                if(_deviceNameController.value.text.trim() != "" && _deviceTypeController.value.text.trim() != "" &&
-                _deviceConditionController.value.text.trim() != ""){
-                  showInSnackBar("Device Created Successfully", TodoColors.accent);
-                }else{
-                  showInSnackBar("Please Specify A Device For All Fields", Colors.redAccent);
+                if (_deviceNameController.value.text.trim() != "" &&
+                    _deviceTypeController.value.text.trim() != "" &&
+                    _deviceConditionController.value.text.trim() != "") {
+                  showInSnackBar(
+                      "Device Created Successfully", TodoColors.accent);
+                } else {
+                  showInSnackBar("Please Specify A Device For All Fields",
+                      Colors.redAccent);
                 }
               },
             ),

@@ -41,6 +41,7 @@ class _CategoryRouteState extends State<CategoryRoute> {
   Category _defaultCategory;
   Category _currentCategory;
   String _currentCategoryName = "";
+
   // Widgets are supposed to be deeply immutable objects. We can update and edit
   // _categories as we build our app, and when we pass it into a widget's
   // `children` property, we call .toList() on it.
@@ -81,9 +82,9 @@ class _CategoryRouteState extends State<CategoryRoute> {
       'error': Color(0xFF912D2D),
     }),
     ColorSwatch(0xFF779A9A, {
-      'highlight': Colors.blueGrey,
-      'splash': Colors.blueGrey,
-      'error': Colors.blueGrey,
+      'highlight': Color(0xFF3366FF),
+      'splash': Color(0xFF3366FF),
+      'error': Color(0xFF3366FF),
     }),
   ];
   static const _icons = <String>[
@@ -98,7 +99,17 @@ class _CategoryRouteState extends State<CategoryRoute> {
   ];
 
   @override
-  Future<void> didChangeDependencies() async {
+  Future
+
+  <
+
+  void
+
+  >
+
+  didChangeDependencies
+
+  () async {
   super.didChangeDependencies();
   // We have static unit conversions located in our
   // assets/data/regular_units.json
@@ -214,7 +225,10 @@ class _CategoryRouteState extends State<CategoryRoute> {
   );
   }
   }
-  Widget condition(Category c){
+
+  Widget condition(Category c)
+
+  {
 //    c = _currentCategory;
   if(c.name == "Profile"){
 //  return EditProfilePage();
@@ -226,15 +240,17 @@ class _CategoryRouteState extends State<CategoryRoute> {
   home: ProfileApp(),
   );
 
-  }else if(c.name == "Project"){
+  }else
+  if(c.name == "Project"){
   return MaterialApp
   (
   title: 'Projects',
   debugShowCheckedModeBanner: false,
   theme: ThemeData(primarySwatch: Colors.blue),
   home: SearchProjectsPage(),
-  );//UnitConverter(category: _currentCategory);
-  }else if (c.name == "Pending Requests"){
+  ); //UnitConverter(category: _currentCategory);
+  }else
+  if (c.name == "Pending Requests"){
   return MaterialApp
   (
   title: 'Pending Requests',
@@ -242,7 +258,8 @@ class _CategoryRouteState extends State<CategoryRoute> {
   theme: ThemeData(primarySwatch: Colors.blue),
   home: ExploreRequestsPage(),
   );
-  }else if (c.name == "Started Projects"){
+  }else
+  if (c.name == "Started Projects"){
   return MaterialApp
   (
   title: 'Started Project Details',
@@ -250,7 +267,8 @@ class _CategoryRouteState extends State<CategoryRoute> {
   theme: ThemeData(primarySwatch: Colors.blue),
   home: StartedProjectPage(),
   );
-  }else if (c.name == "Starting Projects"){
+  }else
+  if (c.name == "Starting Projects"){
   return MaterialApp
   (
   title: 'Starting Project Details',
@@ -258,7 +276,8 @@ class _CategoryRouteState extends State<CategoryRoute> {
   theme: ThemeData(primarySwatch: Colors.blue),
   home: StartingProjectPage(),
   );
-  }else if (c.name == "Explore Users"){
+  }else
+  if (c.name == "Explore Users"){
   return MaterialApp
   (
   title: 'Explore Users',
@@ -266,7 +285,8 @@ class _CategoryRouteState extends State<CategoryRoute> {
   theme: ThemeData(primarySwatch: Colors.blue),
   home: ExploreUsersPage(),
   );
-  }else if (c.name == "Explore Devices"){
+  }else
+  if (c.name == "Explore Devices"){
   return MaterialApp
   (
   title: 'Explore Devices',
@@ -274,7 +294,8 @@ class _CategoryRouteState extends State<CategoryRoute> {
   theme: ThemeData(primarySwatch: Colors.blue),
   home: ExploreDevicesPage(),
   );
-  }else if (c.name == "Closed Projects"){
+  }else
+  if (c.name == "Closed Projects"){
   return MaterialApp
   (
   title: 'Closed Project Details',
@@ -293,7 +314,9 @@ class _CategoryRouteState extends State<CategoryRoute> {
   }
   }
 
-  Category getCat(Category c){
+  Category getCat(Category c)
+
+  {
   if (c == null) {
   return _defaultCategory;
   }
@@ -301,7 +324,9 @@ class _CategoryRouteState extends State<CategoryRoute> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)
+
+  {
   if (_categories.isEmpty) {
   return Center(
   child: Container(
@@ -329,7 +354,7 @@ class _CategoryRouteState extends State<CategoryRoute> {
   frontPanel: condition(_currentCategory),
   backPanel: listView,
   frontTitle: Text(""),
-  backTitle:  Row
+  backTitle: Row
   (
   crossAxisAlignment: CrossAxisAlignment.center,
   mainAxisAlignment: MainAxisAlignment.center,
@@ -339,8 +364,8 @@ class _CategoryRouteState extends State<CategoryRoute> {
   Text("Welcome To Laterite", style: TodoColors.textStyle5,),
   Expanded(child:FlatButton(
   onPressed: () {},
-  child: new Text('Log Out', style: TodoColors.textStyle3,),
-  ), flex: 1,),
+  child: new Text('Log Out', style: TodoColors.textStyle3, ),
+  ), flex: 1, ),
   ],
   ),
 

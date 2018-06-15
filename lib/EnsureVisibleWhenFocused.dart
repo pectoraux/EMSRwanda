@@ -30,7 +30,8 @@ class EnsureVisibleWhenFocused extends StatefulWidget {
   /// Defaults to 100 milliseconds.
   final Duration duration;
 
-  EnsureVisibleWhenFocusedState createState() => new EnsureVisibleWhenFocusedState();
+  EnsureVisibleWhenFocusedState createState() =>
+      new EnsureVisibleWhenFocusedState();
 }
 
 class EnsureVisibleWhenFocusedState extends State<EnsureVisibleWhenFocused> {

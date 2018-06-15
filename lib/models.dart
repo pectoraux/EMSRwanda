@@ -10,7 +10,7 @@ class Profile {
 
   String get ageString => _abbreviatedCount(age);
 
-  String get ratingString =>  rating.toString();
+  String get ratingString => rating.toString();
 
   String get numberProjectsString => _abbreviatedCount(numberProjects);
 

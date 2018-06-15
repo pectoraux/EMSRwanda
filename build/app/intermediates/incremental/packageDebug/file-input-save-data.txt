@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Jun 15 13:08:50 EET 2018
+#Fri Jun 15 14:01:54 EET 2018
 25.file=C\:\\Users\\Tetevi\\Desktop\\Laterite\\FSND\\Udacity_project\\EMSRwanda\\build\\app\\intermediates\\assets\\debug\\flutter_assets\\platform.dill
 41.base=C\:\\Users\\Tetevi\\Desktop\\Laterite\\FSND\\Udacity_project\\EMSRwanda\\build\\app\\intermediates\\res\\resources-debug.ap_
 25.base=C\:\\Users\\Tetevi\\Desktop\\Laterite\\FSND\\Udacity_project\\EMSRwanda\\build\\app\\intermediates\\assets\\debug
